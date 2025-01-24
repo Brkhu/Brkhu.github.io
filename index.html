@@ -161,90 +161,6 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://brkhu.fun/markdown-math-support/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Brkhu">
-      <meta itemprop="description" content="简介？好像是这里">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Brkhu用来瞎搞的地方">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/markdown-math-support/" class="post-title-link" itemprop="url">给网页添加数学公式渲染支持的邪道方法</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2025-01-25 00:38:37 / 修改时间：01:22:06" itemprop="dateCreated datePublished" datetime="2025-01-25T00:38:37+08:00">2025-01-25</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BD%91%E7%AB%99/" itemprop="url" rel="index"><span itemprop="name">网站</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>今天重拾网站, 打算把之前写的一些东西放上来, 结果一开始就遇到了给 Hexo 的 markdown 添加数学公式渲染的问题. 最终通过邪道解决了, 在这里记录一下. 并不确定所有步骤都是必要且正确的, 仅供参考.</p>
-<ol>
-<li><p>卸载 <code>hexo-renderer-marked</code> 并安装 <code>hexo-math</code> 和 <code>hexo-renderer-kramed</code>:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm uninstall hexo-renderer-marked --save</span><br><span class="line">npm install hexo-math</span><br><span class="line">npm install hexo-renderer-kramed --save</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>由于我用的是 next 系列主题, 打开 <code>(博客文件夹)\themes\next\_config.yml</code> 文件, 将其中的</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">math:</span><br><span class="line">  mathjax:</span><br><span class="line">    enable: false</span><br><span class="line">    mhchem: false</span><br></pre></td></tr></table></figure>
-<p>修改为</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">math:</span><br><span class="line">  mathjax:</span><br><span class="line">    enable: true</span><br><span class="line">    per_page: true</span><br><span class="line">    cdn: //cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>由于 markdown 和 tex 语法有部分冲突, 并且我存在在一篇文章里同时使用 _ 和 * 的需求, 所以我选择直接修改将 markdown 转为 html 的配置: 打开 <code>(博客文件夹)\node_modules\kramed\lib\rules\inline.js</code> 文件, 并将</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var inline = &#123;</span><br><span class="line">  escape: /^\\([\\`*&#123;&#125;\[\]()#$+\-.!_&gt;])/,</span><br><span class="line">  ...</span><br><span class="line">  strong: /^__([\s\S]+?)__(?!_)|^\*\*([\s\S]+?)\*\*(?!\*)/,</span><br><span class="line">  em: /^\b_((?:__|[\s\S])+?)_\b|^\*((?:\*\*|[\s\S])+?)\*(?!\*)/,</span><br><span class="line">  ...</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>修改为</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var inline = &#123;</span><br><span class="line">  escape: /^\\([`*\[\]()#$+\-.!_&gt;])/,</span><br><span class="line">  ...</span><br><span class="line">  strong: /^___([\s\S]+?)___(?!_)/,</span><br><span class="line">  em: /^\b__((?:___|[\s\S])+?)__\b/,</span><br><span class="line">  ...</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>其中 <code>escape</code> 取消了 <code>\,&#123;,&#125;</code> 的转义, <code>strong</code> 和 <code>em</code> 取消了用 <code>*</code> 控制斜/粗体, 并且将 <code>_</code> 的控制改为了两个为斜体, 三个为粗体, 五个为粗斜体. 因为数学模式下不会出现超过一个的 <code>_</code>, 因此不会再发生匹配错误. 我知道 <code>\b</code> 匹配的就是单词的末端, 但是我不希望类似 <code>$_12_$</code> 这样错误的代码会被错误地作为斜体显示出来, 而不是报错. 这导致我以后只能使用这个变种的 markdown 来写文章了, 所以不推荐各位这么做.</p>
-</li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://brkhu.fun/arithmetic-semigroup/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -269,15 +185,8 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2025-01-24 21:50:29" itemprop="dateCreated datePublished" datetime="2025-01-24T21:50:29+08:00">2025-01-24</time>
+              <time title="创建时间：2025-01-25 02:25:30" itemprop="dateCreated datePublished" datetime="2025-01-25T02:25:30+08:00">2025-01-25</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-01-25 02:24:20" itemprop="dateModified" datetime="2025-01-25T02:24:20+08:00">2025-01-25</time>
-              </span>
 
           
 
@@ -353,6 +262,90 @@ w(n)w(m)&=\left( n-\frac{a(n)}{\phi} \right) \left( m-\frac{a(m)}{\phi} \right) 
 n\odot_s m=(-1)^{s+1}(F_snm+F_{s+1}na(m)+F_{s+1}ma(n)+F_{s+2}a(n)a(m))
 \end{equation*}
 特别的, $ s=-1 $ 时 $ n\odot_{-1}m=nm+a(n)a(m) $. 这就是我们想要的. 文章的剩下半部分定义了各种其他的结合运算, 这里不再详细叙述. -->
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://brkhu.fun/markdown-math-support/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Brkhu">
+      <meta itemprop="description" content="简介？好像是这里">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Brkhu用来瞎搞的地方">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/markdown-math-support/" class="post-title-link" itemprop="url">给网页添加数学公式渲染支持的邪道方法</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2025-01-25 00:38:37 / 修改时间：01:22:06" itemprop="dateCreated datePublished" datetime="2025-01-25T00:38:37+08:00">2025-01-25</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BD%91%E7%AB%99/" itemprop="url" rel="index"><span itemprop="name">网站</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>今天重拾网站, 打算把之前写的一些东西放上来, 结果一开始就遇到了给 Hexo 的 markdown 添加数学公式渲染的问题. 最终通过邪道解决了, 在这里记录一下. 并不确定所有步骤都是必要且正确的, 仅供参考.</p>
+<ol>
+<li><p>卸载 <code>hexo-renderer-marked</code> 并安装 <code>hexo-math</code> 和 <code>hexo-renderer-kramed</code>:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm uninstall hexo-renderer-marked --save</span><br><span class="line">npm install hexo-math</span><br><span class="line">npm install hexo-renderer-kramed --save</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>由于我用的是 next 系列主题, 打开 <code>(博客文件夹)\themes\next\_config.yml</code> 文件, 将其中的</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">math:</span><br><span class="line">  mathjax:</span><br><span class="line">    enable: false</span><br><span class="line">    mhchem: false</span><br></pre></td></tr></table></figure>
+<p>修改为</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">math:</span><br><span class="line">  mathjax:</span><br><span class="line">    enable: true</span><br><span class="line">    per_page: true</span><br><span class="line">    cdn: //cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>由于 markdown 和 tex 语法有部分冲突, 并且我存在在一篇文章里同时使用 _ 和 * 的需求, 所以我选择直接修改将 markdown 转为 html 的配置: 打开 <code>(博客文件夹)\node_modules\kramed\lib\rules\inline.js</code> 文件, 并将</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var inline = &#123;</span><br><span class="line">  escape: /^\\([\\`*&#123;&#125;\[\]()#$+\-.!_&gt;])/,</span><br><span class="line">  ...</span><br><span class="line">  strong: /^__([\s\S]+?)__(?!_)|^\*\*([\s\S]+?)\*\*(?!\*)/,</span><br><span class="line">  em: /^\b_((?:__|[\s\S])+?)_\b|^\*((?:\*\*|[\s\S])+?)\*(?!\*)/,</span><br><span class="line">  ...</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>修改为</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var inline = &#123;</span><br><span class="line">  escape: /^\\([`*\[\]()#$+\-.!_&gt;])/,</span><br><span class="line">  ...</span><br><span class="line">  strong: /^___([\s\S]+?)___(?!_)/,</span><br><span class="line">  em: /^\b__((?:___|[\s\S])+?)__\b/,</span><br><span class="line">  ...</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>其中 <code>escape</code> 取消了 <code>\,&#123;,&#125;</code> 的转义, <code>strong</code> 和 <code>em</code> 取消了用 <code>*</code> 控制斜/粗体, 并且将 <code>_</code> 的控制改为了两个为斜体, 三个为粗体, 五个为粗斜体. 因为数学模式下不会出现超过一个的 <code>_</code>, 因此不会再发生匹配错误. 我知道 <code>\b</code> 匹配的就是单词的末端, 但是我不希望类似 <code>$_12_$</code> 这样错误的代码会被错误地作为斜体显示出来, 而不是报错. 这导致我以后只能使用这个变种的 markdown 来写文章了, 所以不推荐各位这么做.</p>
+</li>
+</ol>
 
       
     </div>
