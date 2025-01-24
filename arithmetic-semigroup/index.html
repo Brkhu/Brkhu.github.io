@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.1.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"brkhu.fun","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="我们来看如下的一道 IMO 预选题:  (1991 IMO32 Shortlist P20) 设 $\alpha$ 是方程 $x^2&#x3D;1991x+1$ 的正根. 对于任何自然数 $m,n$ 定义 $m*n&#x3D;mn+\left\lfloor \alpha m \right\rfloor \left\lfloor \alpha n \right\rfloor$. 求证: 对所有自然数 $p,q,r$">
+<meta property="og:type" content="article">
+<meta property="og:title" content="一些有趣的主题 - 算术半群">
+<meta property="og:url" content="http://brkhu.fun/arithmetic-semigroup/index.html">
+<meta property="og:site_name" content="Brkhu用来瞎搞的地方">
+<meta property="og:description" content="我们来看如下的一道 IMO 预选题:  (1991 IMO32 Shortlist P20) 设 $\alpha$ 是方程 $x^2&#x3D;1991x+1$ 的正根. 对于任何自然数 $m,n$ 定义 $m*n&#x3D;mn+\left\lfloor \alpha m \right\rfloor \left\lfloor \alpha n \right\rfloor$. 求证: 对所有自然数 $p,q,r$">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-01-24T16:00:00.000Z">
+<meta property="article:modified_time" content="2025-01-24T18:21:10.436Z">
+<meta property="article:author" content="Brkhu">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://brkhu.fun/arithmetic-semigroup/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>一些有趣的主题 - 算术半群 | Brkhu用来瞎搞的地方</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Brkhu用来瞎搞的地方</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://brkhu.fun/arithmetic-semigroup/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Brkhu">
+      <meta itemprop="description" content="简介？好像是这里">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Brkhu用来瞎搞的地方">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          一些有趣的主题 - 算术半群
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2025-01-25 00:00:00 / 修改时间：02:21:10" itemprop="dateCreated datePublished" datetime="2025-01-25T00:00:00+08:00">2025-01-25</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <!-- "C:\Users\Brkhu\Downloads\pandoc-3.6.2-windows-x86_64\pandoc-3.6.2\pandoc.exe" -s test.tex -o test.md -->
+<!-- # 算术半群 -->
+<p>我们来看如下的一道 IMO 预选题:</p>
+<blockquote>
+<p>(1991 IMO32 Shortlist P20) 设 $\alpha$ 是方程 $x^2=1991x+1$ 的正根. 对于任何自然数 $m,n$ 定义 $m*n=mn+\left\lfloor \alpha m \right\rfloor \left\lfloor \alpha n \right\rfloor$. 求证: 对所有自然数 $p,q,r$ 有</p>
+<script type="math/tex; mode=display">(p*q)*r=p*(q*r).</script></blockquote>
+<p>直接暴算确实可以证明:</p>
+<blockquote>
+<p>_Proof._ 记 $k=1991$, 则 $\alpha&gt;1991$ 且 $\alpha(\alpha-k)=1$.<br>对任何自然数 $p,q$, 由于</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\alpha(p*q)&=\alpha pq+\alpha\left\lfloor \alpha p \right\rfloor\left\lfloor \alpha q \right\rfloor\\
+&=\frac{1}{\alpha}(\alpha^2 pq+\alpha^2\left\lfloor \alpha p \right\rfloor\left\lfloor \alpha q \right\rfloor)\\
+&=\frac{1}{\alpha}(\alpha^2 pq+(1+k\alpha)\left\lfloor \alpha p \right\rfloor\left\lfloor \alpha q \right\rfloor)\\
+&=\frac{1}{\alpha}(\alpha^2 pq+\left\lfloor \alpha p \right\rfloor\left\lfloor \alpha q \right\rfloor)+k\left\lfloor \alpha p \right\rfloor\left\lfloor \alpha q \right\rfloor\\
+&=\frac{1}{\alpha}(\alpha p-\left\lfloor \alpha p \right\rfloor)(\alpha q-\left\lfloor \alpha q \right\rfloor)+k\left\lfloor \alpha p \right\rfloor\left\lfloor \alpha q \right\rfloor+p\left\lfloor \alpha q \right\rfloor+q\left\lfloor \alpha p \right\rfloor
+\end{aligned}</script><p>又</p>
+<script type="math/tex; mode=display">0<\frac{1}{\alpha}(\alpha p-\left\lfloor \alpha p \right\rfloor)(\alpha q-\left\lfloor \alpha q \right\rfloor)<1</script><p>所以</p>
+<script type="math/tex; mode=display">\left\lfloor \alpha(p*q) \right\rfloor=k\left\lfloor \alpha p \right\rfloor\left\lfloor \alpha q \right\rfloor+p\left\lfloor \alpha q \right\rfloor+q\left\lfloor \alpha p \right\rfloor</script><p>从而</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+(p*q)*r&=(p*q)r+\left\lfloor \alpha(p*q) \right\rfloor\left\lfloor \alpha r \right\rfloor\\
+&=pqr+\left\lfloor \alpha p \right\rfloor\left\lfloor \alpha q \right\rfloor r+(k\left\lfloor \alpha p \right\rfloor\left\lfloor \alpha q \right\rfloor+p\left\lfloor \alpha q \right\rfloor+q\left\lfloor \alpha p \right\rfloor)\left\lfloor \alpha r \right\rfloor,\\
+p*(q*r)&=p(q*r)+\left\lfloor \alpha p \right\rfloor\left\lfloor \alpha(q*r) \right\rfloor\\
+&=pqr+p\left\lfloor \alpha q \right\rfloor\left\lfloor \alpha r \right\rfloor+\left\lfloor \alpha p \right\rfloor(k\left\lfloor \alpha q \right\rfloor\left\lfloor \alpha r \right\rfloor+q\left\lfloor \alpha r \right\rfloor+r\left\lfloor \alpha q \right\rfloor),
+\end{aligned}</script><p>于是</p>
+<script type="math/tex; mode=display">(p*q)*r=p*(q*r).</script><p align="right">□</p>
+
+</blockquote>
+<p>这个方法实在是太丑陋, 太没有启发性了. 题目让证明正整数关于这个运算构成一个半群, 这个半群的结构一定能从别的地方导出. 我们同样也能猜测, $1991$ 并不是本质的.</p>
+<p>事实上, 就在前一年, A.S. Frankel, H. Porta 和 K.B. Stolarsky<sup><a href="#fn_1" id="reffn_1">1</a></sup>\cite{Fraenkel1990} 写了一篇关于一类算术半群的文章, 恰好能解决这个问题. 原文章中只显式给出了 $\alpha=\phi=\frac{1+\sqrt{5}}{2}$ 的结论, 我们也只会这样做, 相信大家容易把它推广到一般的 $\alpha=\frac{1+\sqrt{4k+1}}{2}$.</p>
+<blockquote>
+<p>_Another proof._ 如果我们对任意整数 $n$ 定义</p>
+<script type="math/tex; mode=display">a(n)=\left\lfloor n\phi \right\rfloor,</script><p>再考虑</p>
+<script type="math/tex; mode=display">w(n)=\frac{\{n\phi\}}{\phi}=n-\frac{a(n)}{\phi},</script><p>那么 $w\colon\mathbb{Z}\to[0,\phi^{-1})$ 是单射. 如果展开</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+w(n)w(m)&=\left( n-\frac{a(n)}{\phi} \right) \left( m-\frac{a(m)}{\phi} \right) \\
+&=nm-\frac{a(n)m+a(m)n}{\phi}+\frac{a(n)a(m)}{\phi^2},
+\end{aligned}</script><p>再利用 $\phi^{-2}=1-\phi^{-1}$, 便能得到</p>
+<script type="math/tex; mode=display">w(n)w(m)=nm+a(n)a(m)-\frac{a(n)m+a(m)n+a(n)a(m)}{\phi}.</script><p>由于 $a(n)$ 永远是整数, 显然有</p>
+<script type="math/tex; mode=display">\{\phi w(n)w(m)\}=\{\phi nm+\phi a(n)a(m)\}=\phi w(nm+a(n)a(m)),</script><p>但由于 $w$ 的值域在 $[0,\phi^{-1})$ 内, 所以总有 $0\leq\phi w(m)w(n)&lt;\phi^{-1}&lt;1$, 所以实际上最左边的小数部分可以去掉. 去掉后我们立即得到</p>
+<script type="math/tex; mode=display">w(n)w(m)=w(nm+a(n)a(m)).</script><p>也就是说, 如果定义运算 $n*m=nm+a(n)a(m)$, 那么 $w(n)w(m)=w(n*m)$. 由于 $w$ 是单射, 我们可以认为它把 $[0,\phi^{-1})$ 上的实数乘法运算拉回为了 $\mathbb{Z}$ 上的 $*$ 运算, 从而 $*$ 自然是结合的.</p>
+<p align="right">□</p>
+
+</blockquote>
+<p>显然这个做法是可以推广的: 对任意非负整数 $ s\in\mathbb{N} $, 我们都可以定义 $ w_s(n)=\phi^{-s}\{n\phi\} $, 并将 $ [0,\phi^{-s}) $ 上的乘法拉回为 $ \mathbb{Z} $ 上的 $ *_s $. 根据定义, 这需要满足</p>
+<script type="math/tex; mode=display">
+\phi^{-2s}\{n\phi\}\{m\phi\}=w_s(n)w_s(m)=w_s(n*_sm)=\phi^{-s}\{(n*_sm)\phi\}.</script><p>而熟知 Fibonacci 数列 $ F_0=0,F_1=1,F_n=F_{n-1}+F_{n-2} $ 满足性质 $ \phi^n=F_n\phi+F_{n-1} $, 以及 $ F_{-n}=(-1)^{n-1}F_n $, 所以 $ \phi^{-s} $ 实际上可以看做 $ \{(-1)^{s-1}F_s\phi\} $, 从而</p>
+<script type="math/tex; mode=display">
+\{(-1)^{s-1}F_s\phi\}\{n\phi\}\{m\phi\}=\{(n*_sm)\phi\}\implies n*_sm=n*_0((-1)^{s-1}F_s)*_0m,</script><p>类似的还有非常多的关系, 感兴趣的可以去看 Frankel, Porta, Stolarsky 的原文章.</p>
+<blockquote id="fn_1">
+<sup>1</sup>. A. S. Fraenkel, H. Porta, and K. B. Stolarsky. Some arithmetical semigroups. In Bruce C. Berndt, Harold G. Diamond, Heini Halberstam, and Adolf Hildebrand, editors, <em>Analytic Number Theory: Proceedings of a Conference in Honor of Paul T. Bateman</em>, pages 255-264. Birkhäuser Boston, Boston, MA, 1990. <a target="_blank" rel="noopener" href="https://doi.org/10.1007/978-1-4612-3464-7_16">https://doi.org/10.1007/978-1-4612-3464-7_16</a>. 这里附上<a href="../arithmetical_semigroup.pdf">全书 pdf</a>. <a href="#reffn_1" title="Jump back to footnote [1] in the text."> &#8617;</a>
+</blockquote>
+<!-- 事实上,
+\begin{equation*}
+\frac{\{p\phi\}}{\phi^s}=\frac{\{m\phi\}}{\phi^s}\frac{\{n\phi\}}{\phi^s}\iff p=n\dagger((-1)^{s+1}F_s)\dagger m
+\end{equation*}
+其中 $ F_1=F_2=1,F_{s+2}=F_{s+1}+F_s $ 为 Fibonacci 数列. 因为 $ \dagger $ 本身是结合的, 这样定义出来的 $ n\odot_s m=n\dagger((-1)^{s+1}F_s)\dagger m $ 也是结合的. 它的具体形式为
+\begin{equation*}
+n\odot_s m=(-1)^{s+1}(F_snm+F_{s+1}na(m)+F_{s+1}ma(n)+F_{s+2}a(n)a(m))
+\end{equation*}
+特别的, $ s=-1 $ 时 $ n\odot_{-1}m=nm+a(n)a(m) $. 这就是我们想要的. 文章的剩下半部分定义了各种其他的结合运算, 这里不再详细叙述. -->
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/%E5%A4%8D%E6%B4%BB%EF%BC%81/" rel="prev" title="堂堂复活！">
+      <i class="fa fa-chevron-left"></i> 堂堂复活！
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/markdown-math-support/" rel="next" title="给网页添加数学公式渲染支持的邪道方法">
+      给网页添加数学公式渲染支持的邪道方法 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Brkhu"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Brkhu</p>
+  <div class="site-description" itemprop="description">简介？好像是这里</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2022 – 
+  <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-cube"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Brkhu</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+</body>
+</html>
