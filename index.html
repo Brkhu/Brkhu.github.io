@@ -119,11 +119,6 @@
     <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
 
   </li>
-        <li class="menu-item menu-item-tags">
-
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
-
-  </li>
         <li class="menu-item menu-item-categories">
 
     <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
@@ -157,6 +152,77 @@
 
           <div class="content index posts-expand">
             
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://brkhu.fun/posts/2025/01/sidebar-social-icon/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Brkhu">
+      <meta itemprop="description" content="简介？好像是这里">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Brkhu用来瞎搞的地方">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/2025/01/sidebar-social-icon/" class="post-title-link" itemprop="url">侧边栏社交链接图标显示的抽象问题</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2025-01-26 23:00:27 / 修改时间：23:13:54" itemprop="dateCreated datePublished" datetime="2025-01-26T23:00:27+08:00">2025-01-26</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BD%91%E7%AB%99/" itemprop="url" rel="index"><span itemprop="name">网站</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>今天尝试加相关链接和友链, 仔细阅读 <code>_config.yml</code>, 发现了如下的片段:<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">social:</span><br><span class="line">  #GitHub: https://github.com/yourname || fab fa-github</span><br><span class="line">  #E-Mail: mailto:yourname@gmail.com || fa fa-envelope</span><br><span class="line">  #Weibo: https://weibo.com/yourname || fab fa-weibo</span><br><span class="line">  #Google: https://plus.google.com/yourname || fab fa-google</span><br><span class="line">  #Twitter: https://twitter.com/yourname || fab fa-twitter</span><br><span class="line">  #FB Page: https://www.facebook.com/yourname || fab fa-facebook</span><br><span class="line">  #StackOverflow: https://stackoverflow.com/yourname || fab fa-stack-overflow</span><br><span class="line">  #YouTube: https://youtube.com/yourname || fab fa-youtube</span><br><span class="line">  #Instagram: https://instagram.com/yourname || fab fa-instagram</span><br><span class="line">  #Skype: skype:yourname?call|chat || fab fa-skype</span><br><span class="line"></span><br><span class="line">social_icons:</span><br><span class="line">  enable: false</span><br><span class="line">  icons_only: false</span><br><span class="line">  transition: false</span><br></pre></td></tr></table></figure></p>
+<p>尝试添加 github, 邮箱和知乎, 将其修改成如下:<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">social:</span><br><span class="line">  GitHub: https://github.com/Brkhu || fab fa-github</span><br><span class="line">  E-Mail: mailto:w-zc21@mails.tsinghua.edu.cn || fa fa-envelope</span><br><span class="line">  #Weibo: https://weibo.com/yourname || fab fa-weibo</span><br><span class="line">  #Google: https://plus.google.com/yourname || fab fa-google</span><br><span class="line">  #Twitter: https://twitter.com/yourname || fab fa-twitter</span><br><span class="line">  #FB Page: https://www.facebook.com/yourname || fab fa-facebook</span><br><span class="line">  #StackOverflow: https://stackoverflow.com/yourname || fab fa-stack-overflow</span><br><span class="line">  #YouTube: https://youtube.com/yourname || fab fa-youtube</span><br><span class="line">  #Instagram: https://instagram.com/yourname || fab fa-instagram</span><br><span class="line">  #Skype: skype:yourname?call|chat || fab fa-skype</span><br><span class="line">  知乎: https://www.zhihu.com/people/yi-ge-pu-tong-ren-45</span><br><span class="line"></span><br><span class="line">social_icons:</span><br><span class="line">  enable: false</span><br><span class="line">  icons_only: false</span><br><span class="line">  transition: false</span><br></pre></td></tr></table></figure><br>结果只要把下面的 <code>social_icon</code> 中的 <code>enable</code> 改成 <code>true</code> 就会在生成 <code>.html</code> 文件的时候崩溃, 导致主页都进不去. 在网络上没有找到特别相关的结果.</p>
+<p>阅读 <code>\themes\next\layout\_partials\sidebar\site-overview.swig</code> 源代码 77-96 行:<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&#123;%- if theme.social %&#125;</span><br><span class="line">  &lt;div class=&quot;links-of-author motion-element&quot;&gt;</span><br><span class="line">    &#123;%- for name, link in theme.social %&#125;</span><br><span class="line">      &lt;span class=&quot;links-of-author-item&quot;&gt;</span><br><span class="line">      &#123;%- set sidebarURL = link.split(&#x27;||&#x27;)[0] | trim %&#125;</span><br><span class="line">      &#123;%- if theme.social_icons.enable %&#125;</span><br><span class="line">        &#123;%- set sidebarIcon = &#x27;&lt;i class=&quot;&#x27; + link.split(&#x27;||&#x27;)[1] | trim + &#x27; fa-fw&quot;&gt;&lt;/i&gt;&#x27; %&#125;</span><br><span class="line">      &#123;%- else %&#125;</span><br><span class="line">        &#123;%- set sidebarIcon = &#x27;&#x27; %&#125;</span><br><span class="line">      &#123;%- endif %&#125;</span><br><span class="line">      &#123;%- if theme.social_icons.enable and theme.social_icons.icons_only %&#125;</span><br><span class="line">        &#123;%- set sidebarText = &#x27;&#x27; %&#125;</span><br><span class="line">      &#123;%- else %&#125;</span><br><span class="line">        &#123;%- set sidebarText = name %&#125;</span><br><span class="line">      &#123;%- endif %&#125;</span><br><span class="line">        &#123;&#123; next_url(sidebarURL, sidebarIcon + sidebarText, &#123;title: name + &#x27; → &#x27; + sidebarURL&#125;) &#125;&#125;</span><br><span class="line">      &lt;/span&gt;</span><br><span class="line">    &#123;%- endfor %&#125;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&#123;%- endif %&#125;</span><br></pre></td></tr></table></figure><br>并实验后, 发现原因在于只要 <code>theme.social_icons.enable = true</code>, 就会将字符串用 <code>||</code> 分割, 并调用后半部分, 前后添加一些元素变成 <code>&lt;i class=&quot;xxx fa-fw&quot;&gt;&lt;/i&gt;</code> 的 <code>html</code> 代码. 但我设置的知乎网址后面没有使用 <code>||</code> 而是直接留空, 从而 <code>link.split(&#39;||&#39;)[1]</code> 不存在, 导致生成出错.</p>
+<p>这么弱智的错误难怪在网上找不到. 整理成一篇博客, 留作警示.</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -862,7 +928,7 @@ n\odot_s m=(-1)^{s+1}(F_snm+F_{s+1}na(m)+F_{s+1}ma(n)+F_{s+2}a(n)a(m))
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">8</span>
+          <span class="site-state-item-count">9</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -878,8 +944,26 @@ n\odot_s m=(-1)^{s+1}(F_snm+F_{s+1}na(m)+F_{s+1}ma(n)+F_{s+2}a(n)a(m))
       </div>
   </nav>
 </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Brkhu" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Brkhu" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:w-zc21@mails.tsinghua.edu.cn" title="E-Mail → mailto:w-zc21@mails.tsinghua.edu.cn" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i></a>
+      </span>
+  </div>
 
 
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://algebratv.com/" title="https:&#x2F;&#x2F;algebratv.com" rel="noopener" target="_blank">Not A Goalkeeper 的个人网站</a>
+        </li>
+    </ul>
+  </div>
 
       </div>
 
