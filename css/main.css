@@ -18,6 +18,31 @@
   --btn-default-hover-color: #fff;
   --btn-default-hover-border-color: #222;
 }
+img {
+  opacity: 1;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --body-bg-color: #282828;
+    --content-bg-color: #333;
+    --card-bg-color: #555;
+    --text-color: #ccc;
+    --blockquote-color: #bbb;
+    --link-color: #ccc;
+    --link-hover-color: #eee;
+    --brand-color: #ddd;
+    --brand-hover-color: #ddd;
+    --table-row-odd-bg-color: #282828;
+    --table-row-hover-bg-color: #363636;
+    --menu-item-bg-color: #555;
+    --btn-default-bg: #222;
+    --btn-default-color: #ccc;
+    --btn-default-border-color: #555;
+    --btn-default-hover-bg: #666;
+    --btn-default-hover-color: #ccc;
+    --btn-default-hover-border-color: #666;
+  }
+}
 html {
   line-height: 1.15; /* 1 */
   -webkit-text-size-adjust: 100%; /* 2 */
@@ -1194,7 +1219,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #09ffff;
+  background: #b8b3b5;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -1570,10 +1595,10 @@ pre .javascript .function {
 }
 .use-motion .post-block {
   opacity: 0;
-  margin-top: 60px;
+  margin-top: 0px;
   margin-bottom: 60px;
   padding: 25px;
-  background: rgba(255,255,255,0.9) none repeat scroll !important;
+  background: rgba(255,255,255,0) none repeat scroll !important;
   -webkit-box-shadow: 0 0 5px rgba(202,203,203,0.5);
   -moz-box-shadow: 0 0 5px rgba(202,203,204,0.5);
 }
@@ -2472,24 +2497,38 @@ ul.breadcrumb li + li:last-child {
 .links-of-blogroll-item {
   padding: 0;
 }
+.headband {
+  height: 0px;
+}
 .main-inner {
-  opacity: 0.8;
+  opacity: 0.9;
 }
 .header-inner {
-  opacity: 0.85;
+  opacity: 0.9;
   z-index: 10;
 }
 .sidebar {
-  opacity: 0.85;
+  opacity: 0.9;
 }
 .content {
   padding-top: 15px;
   opacity: 0.9;
 }
-body {
-  background: url("/images/background1.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: 50% 50%;
+@media (prefers-color-scheme: light) {
+  body {
+    background: url("/images/background_light.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  body {
+    background: url("/images/background_dark.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+  }
 }
