@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.1.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"brkhu.fun","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="我实在是被末影人整得受不了了. 末影人只要搬起方块就不会计入刷怪上限, 也不会自然刷掉, 所以它们可以随意传送到别的地方再把方块放下. 游戏用 #minecraft:enderman_holdable 这个标签标明了末影人可以拿起来的方块, 它包含的方块可以在 &#x2F;data&#x2F;minecraft&#x2F;tags&#x2F;blocks&#x2F;enderman_holdable.json 中找到:">
+<meta property="og:type" content="article">
+<meta property="og:title" content="今 (前? ) 日 MC: 修改了小黑能搬起方块的特性">
+<meta property="og:url" content="http://brkhu.fun/posts/2025/02/fwenderman/index.html">
+<meta property="og:site_name" content="Brkhu用来瞎搞的地方">
+<meta property="og:description" content="我实在是被末影人整得受不了了. 末影人只要搬起方块就不会计入刷怪上限, 也不会自然刷掉, 所以它们可以随意传送到别的地方再把方块放下. 游戏用 #minecraft:enderman_holdable 这个标签标明了末影人可以拿起来的方块, 它包含的方块可以在 &#x2F;data&#x2F;minecraft&#x2F;tags&#x2F;blocks&#x2F;enderman_holdable.json 中找到:">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://brkhu.fun/images/2025/02/fwenderman/2023-01-09_16.57.00.png">
+<meta property="og:image" content="http://brkhu.fun/images/2025/02/fwenderman/2023-01-15_16.41.46.png">
+<meta property="og:image" content="http://brkhu.fun/images/2025/02/fwenderman/2023-01-15_16.43.13.png">
+<meta property="article:published_time" content="2025-02-13T08:40:01.000Z">
+<meta property="article:modified_time" content="2025-02-13T08:40:01.601Z">
+<meta property="article:author" content="Brkhu">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://brkhu.fun/images/2025/02/fwenderman/2023-01-09_16.57.00.png">
+
+<link rel="canonical" href="http://brkhu.fun/posts/2025/02/fwenderman/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>今 (前? ) 日 MC: 修改了小黑能搬起方块的特性 | Brkhu用来瞎搞的地方</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Brkhu用来瞎搞的地方</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://brkhu.fun/posts/2025/02/fwenderman/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Brkhu">
+      <meta itemprop="description" content="简介？好像是这里">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Brkhu用来瞎搞的地方">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          今 (前? ) 日 MC: 修改了小黑能搬起方块的特性
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2025-02-13 16:40:01" itemprop="dateCreated datePublished" datetime="2025-02-13T16:40:01+08:00">2025-02-13</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%B8%B8%E6%88%8F/" itemprop="url" rel="index"><span itemprop="name">游戏</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>我实在是被末影人整得受不了了.</p>
+<p>末影人只要搬起方块就不会计入刷怪上限, 也不会自然刷掉, 所以它们可以随意传送到别的地方再把方块放下. 游戏用 <code>#minecraft:enderman_holdable</code> 这个标签标明了末影人可以拿起来的方块, 它包含的方块可以在 <code>/data/minecraft/tags/blocks/enderman_holdable.json</code> 中找到:<br><span id="more"></span><br><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;values&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">    <span class="string">&quot;#minecraft:small_flowers&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="string">&quot;#minecraft:dirt&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="string">&quot;minecraft:sand&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="string">&quot;minecraft:red_sand&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="string">&quot;minecraft:gravel&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="string">&quot;minecraft:brown_mushroom&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="string">&quot;minecraft:red_mushroom&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="string">&quot;minecraft:tnt&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="string">&quot;minecraft:cactus&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="string">&quot;minecraft:clay&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="string">&quot;minecraft:pumpkin&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="string">&quot;minecraft:carved_pumpkin&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="string">&quot;minecraft:melon&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="string">&quot;minecraft:crimson_fungus&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="string">&quot;minecraft:crimson_nylium&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="string">&quot;minecraft:crimson_roots&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="string">&quot;minecraft:warped_fungus&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="string">&quot;minecraft:warped_nylium&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="string">&quot;minecraft:warped_roots&quot;</span></span><br><span class="line">  <span class="punctuation">]</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure><br>其中 <code>#minecraft:small_flowers</code> 和 <code>#minecraft:dirt</code> 又是两个另外的标签, 大致就是所有花和所有泥土的衍生方块.</p>
+<p>几乎所有的刷怪塔都需要一个挂机的玩家和一个打怪的玩家, 尤其是我们服务器做了好几个双维度的刷怪塔, 做太高的话还要担心串门的问题, 所以没办法避免地狱下层的刷怪. 坐标原点附近刚好是诡异森林, 会刷不少的末影人, 于是它们就会就近搬起各种诡异菌岩和诡异菌索到处乱放, 在附近的下界荒地上创造大量零散的方块.</p>
+<p>为了获取下界残骸, 我们在地狱底层的岩浆湖下用床炸出了非常复杂的洞穴, 于是也暴露出了大量的砂砾. bdpq 当时做了一个小型的盾构机, 炸膛之后就没有再动过, 只是用泥土填了一部分. 巧的是砂砾和泥土刚好也是末影人可以搬起来的方块, 于是就更乱了.</p>
+<p>不仅如此, 地狱会自然生成一些红蘑菇和灰蘑菇, 并且它们会自然生长. 于是又有越来越多的末影人化身成为蘑菇种植专家, 带着它们的蘑菇走遍地狱, 从而地狱的蘑菇和服务器的 mspt 都得到了指数级的增长:</p>
+<p><img src="/images/2025/02/fwenderman/2023-01-09_16.57.00.png" alt="图片加载失败! 这是第一张图片, 展示了高达 76.9 的 mspt, 其中地狱实体 15ms, 以及大量带着全部家当的末影人扎堆在四格空间内" title="小黑多多, mspt炸炸"></p>
+<p><img src="/images/2025/02/fwenderman/2023-01-15_16.41.46.png" alt="图片加载失败! 这是第二张图片, 清完一部分末影人后 mspt 迅速降至 50 以下" title="好似"></p>
+<p><img src="/images/2025/02/fwenderman/2023-01-15_16.43.13.png" alt="图片加载失败! 这是第三张图片, 下界荒地的大片空地被蘑菇占领" title="地狱绘图"></p>
+<p>做了好几次大面积的清理, 每次都能清理出来好几盒蘑菇. 但就算蘑菇能随便清理, 其他的方块, 尤其是菌岩和砂砾, 实在没办法防止末影人搬起来. 末影人不能搬起与脚下方块同一层的方块, 但是能搬起自己身高 3 格范围内的方块, 所以最后地形一定会变得越来越崎岖.</p>
+<p>很久以前就想通过数据包的方式限制末影人搬方块, 前天终于把这件事做了, 记录一下. 其实非常简单, 首先在存档的 <code>/datapacks/</code> 目录下新建文件夹, 这将会是你的数据包名字, 这里以 <code>FWEnderman</code> 为例. 之后进入文件夹, 创建 <code>pack.mcmeta</code> 文件:<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;pack&quot;: &#123;</span><br><span class="line">    &quot;pack_format&quot;: 26,</span><br><span class="line">    &quot;description&quot;: &quot;啥比末影人别惦记你那B方块了&quot;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>我们服务器的版本是 <code>1.20.4</code>, 对应的数据包版本号是 <code>26</code>, 这个可以去 <a target="_blank" rel="noopener" href="https://zh.minecraft.wiki/w/%E6%95%B0%E6%8D%AE%E5%8C%85/%E7%89%88%E6%9C%AC">https://zh.minecraft.wiki/w/%E6%95%B0%E6%8D%AE%E5%8C%85/%E7%89%88%E6%9C%AC</a> 寻找.</p>
+<p>之后需要定位给方块赋予目标标签的 <code>json</code> 文件位置, 也就是我们一开始所做的, 它在 <code>/data/minecraft/tags/blocks/enderman_holdable.json</code> 里面. 为了取消这个标签, 我们同样需要 <code>minecraft</code> 这个命名空间, 所以需要在我们的 <code>FWEnderman</code> 文件夹里面也新建 <code>data</code> 文件夹, 进入后新建 <code>minecraft</code> 文件夹, 以此类推在同样的位置创建 <code>enderman_holdable.json</code>. 与原版文件不同, 这里我填入的是:<br><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;replace&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;values&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">        <span class="string">&quot;minecraft:pumpkin&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="string">&quot;minecraft:carved_pumpkin&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="string">&quot;minecraft:melon&quot;</span></span><br><span class="line">    <span class="punctuation">]</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure><br>之后进入游戏, 先用 <code>/datapack list</code> 查看待启用的这个数据包, 之后再 <code>/datapack enable xxx</code> 就可以了. 可以检查此时的草方块和蘑菇等确实没有了 <code>#minecraft:enderman_holdable</code> 标签, 末影人也不再能搬起来它们了. 然而南瓜, 雕刻南瓜, 西瓜还是能搬起来, 所以以后也不影响做末影人搬瓜农场.</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/posts/2025/02/dark-mode-setting/" rel="prev" title="调整黑暗模式设置">
+      <i class="fa fa-chevron-left"></i> 调整黑暗模式设置
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Brkhu"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Brkhu</p>
+  <div class="site-description" itemprop="description">简介？好像是这里</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">14</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Brkhu" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Brkhu" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:w-zc21@mails.tsinghua.edu.cn" title="E-Mail → mailto:w-zc21@mails.tsinghua.edu.cn" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.zhihu.com/people/yi-ge-pu-tong-ren-45" title="知乎 → https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;yi-ge-pu-tong-ren-45" rel="noopener" target="_blank"><i class="fab fa-zhihu fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://space.bilibili.com/38619348" title="Bilibili → https:&#x2F;&#x2F;space.bilibili.com&#x2F;38619348" rel="noopener" target="_blank"><i class="fab fa-bilibili fa-fw"></i></a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://algebratv.com/" title="https:&#x2F;&#x2F;algebratv.com" rel="noopener" target="_blank">Not A Goalkeeper 的个人网站</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://hexo.lukechen.lc/" title="https:&#x2F;&#x2F;hexo.lukechen.lc&#x2F;" rel="noopener" target="_blank">Luke Chen 的个人网站</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2022 – 
+  <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-cube"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Brkhu</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
