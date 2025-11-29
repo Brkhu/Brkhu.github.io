@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 8.0.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"brkhu.fun","root":"/","images":"/images","scheme":"Pisces","darkmode":true,"version":"8.25.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"stackoverflow-light","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"language":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="写 mc 的新文章, 写着写着被图片的透明度和黑色模式整红温了. 还是先把这个整理下来吧, 不然很快就忘了. 如果直接把 next 主题的 _config.yml 中 darkmode 改成 true, 效果就会变成这个样子:">
+<meta property="og:type" content="article">
+<meta property="og:title" content="调整黑暗模式设置">
+<meta property="og:url" content="http://brkhu.fun/posts/2025/02/dark-mode-setting/index.html">
+<meta property="og:site_name" content="Brkhu用来瞎搞的地方">
+<meta property="og:description" content="写 mc 的新文章, 写着写着被图片的透明度和黑色模式整红温了. 还是先把这个整理下来吧, 不然很快就忘了. 如果直接把 next 主题的 _config.yml 中 darkmode 改成 true, 效果就会变成这个样子:">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://brkhu.fun/images/2025/02/opacity/%E6%95%88%E6%9E%9C1.png">
+<meta property="og:image" content="http://brkhu.fun/images/2025/02/opacity/%E6%95%88%E6%9E%9C2.png">
+<meta property="og:image" content="http://brkhu.fun/images/2025/02/opacity/%E6%9C%80%E7%BB%88%E6%95%88%E6%9E%9C.png">
+<meta property="article:published_time" content="2025-02-12T16:40:11.000Z">
+<meta property="article:modified_time" content="2025-02-12T16:40:11.381Z">
+<meta property="article:author" content="Brkhu">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://brkhu.fun/images/2025/02/opacity/%E6%95%88%E6%9E%9C1.png">
+
+
+<link rel="canonical" href="http://brkhu.fun/posts/2025/02/dark-mode-setting/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://brkhu.fun/posts/2025/02/dark-mode-setting/","path":"/posts/2025/02/dark-mode-setting/","title":"调整黑暗模式设置"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>调整黑暗模式设置 | Brkhu用来瞎搞的地方</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Brkhu用来瞎搞的地方</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Brkhu"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Brkhu</p>
+  <div class="site-description" itemprop="description">简介？好像是这里</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">21</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Brkhu" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Brkhu" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:w-zc21@mails.tsinghua.edu.cn" title="E-Mail → mailto:w-zc21@mails.tsinghua.edu.cn" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.zhihu.com/people/yi-ge-pu-tong-ren-45" title="知乎 → https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;yi-ge-pu-tong-ren-45" rel="noopener me" target="_blank"><i class="fab fa-zhihu fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://space.bilibili.com/38619348" title="Bilibili → https:&#x2F;&#x2F;space.bilibili.com&#x2F;38619348" rel="noopener me" target="_blank"><i class="fab fa-bilibili fa-fw"></i></a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="sidebar-inner sidebar-blogroll">
+      <div class="links-of-blogroll animated">
+        <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+          链接
+        </div>
+        <ul class="links-of-blogroll-list">
+            <li class="links-of-blogroll-item">
+              <a href="https://algebratv.com/" title="https:&#x2F;&#x2F;algebratv.com" rel="noopener" target="_blank">Not A Goalkeeper 的个人网站</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://hexo.lukechen.lc/" title="https:&#x2F;&#x2F;hexo.lukechen.lc" rel="noopener" target="_blank">Luke Chen 的个人网站</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://vegetablefj.github.io/blog" title="https:&#x2F;&#x2F;vegetablefj.github.io&#x2F;blog" rel="noopener" target="_blank">vegetable fj 的个人网站</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://luody21.github.io/" title="https:&#x2F;&#x2F;luody21.github.io" rel="noopener" target="_blank">bdpqpqbd 的个人网站</a>
+            </li>
+        </ul>
+      </div>
+    </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://brkhu.fun/posts/2025/02/dark-mode-setting/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Brkhu">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Brkhu用来瞎搞的地方">
+      <meta itemprop="description" content="简介？好像是这里">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="调整黑暗模式设置 | Brkhu用来瞎搞的地方">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          调整黑暗模式设置
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2025-02-13 00:40:11" itemprop="dateCreated datePublished" datetime="2025-02-13T00:40:11+08:00">2025-02-13</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%BD%91%E7%AB%99/" itemprop="url" rel="index"><span itemprop="name">网站</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>写 mc 的新文章, 写着写着被图片的透明度和黑色模式整红温了. 还是先把这个整理下来吧, 不然很快就忘了.</p>
+<p>如果直接把 <code>next</code> 主题的 <code>_config.yml</code> 中 <code>darkmode</code> 改成 <code>true</code>, 效果就会变成这个样子:</p>
+<p><img src="/images/2025/02/opacity/%E6%95%88%E6%9E%9C1.png" alt="图片加载失败! 这是第一张图, 大部分组件都变为了深色, 大部分文字也都变为了浅色, 但包裹内容的块没有变色, 导致几乎看不清文字" title="有点抽象"></p>
+<span id="more"></span>
+
+<p>查看 <code>next</code> 主题的配置文件 <code>next/source/css/_colors.styl</code> 可以看到</p>
+<figure class="highlight styl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-pseudo">:root</span> &#123;</span><br><span class="line">  <span class="attr">--body-bg-color</span>: <span class="variable">$body</span>-bg-<span class="attribute">color</span>;</span><br><span class="line">  <span class="attr">--content-bg-color</span>: <span class="variable">$content</span>-bg-<span class="attribute">color</span>;</span><br><span class="line">  <span class="attr">--card-bg-color</span>: <span class="variable">$card</span>-bg-<span class="attribute">color</span>;</span><br><span class="line">  <span class="attr">--text-color</span>: <span class="variable">$text</span>-<span class="attribute">color</span>;</span><br><span class="line">  <span class="attr">--blockquote-color</span>: <span class="variable">$blockquote</span>-<span class="attribute">color</span>;</span><br><span class="line">  <span class="attr">--link-color</span>: <span class="variable">$link</span>-<span class="attribute">color</span>;</span><br><span class="line">  <span class="attr">--link-hover-color</span>: <span class="variable">$link</span>-hover-<span class="attribute">color</span>;</span><br><span class="line">  <span class="attr">--brand-color</span>: <span class="variable">$brand</span>-<span class="attribute">color</span>;</span><br><span class="line">  <span class="attr">--brand-hover-color</span>: <span class="variable">$brand</span>-hover-<span class="attribute">color</span>;</span><br><span class="line">  <span class="attr">--table-row-odd-bg-color</span>: <span class="variable">$table</span>-row-odd-bg-<span class="attribute">color</span>;</span><br><span class="line">  <span class="attr">--table-row-hover-bg-color</span>: <span class="variable">$table</span>-row-hover-bg-<span class="attribute">color</span>;</span><br><span class="line">  <span class="attr">--menu-item-bg-color</span>: <span class="variable">$menu</span>-item-bg-<span class="attribute">color</span>;</span><br><span class="line">  <span class="attr">--btn-default-bg</span>: <span class="variable">$btn</span>-default-bg;</span><br><span class="line">  <span class="attr">--btn-default-color</span>: <span class="variable">$btn</span>-default-<span class="attribute">color</span>;</span><br><span class="line">  <span class="attr">--btn-default-border-color</span>: <span class="variable">$btn</span>-default-<span class="attribute">border-color</span>;</span><br><span class="line">  <span class="attr">--btn-default-hover-bg</span>: <span class="variable">$btn</span>-default-hover-bg;</span><br><span class="line">  <span class="attr">--btn-default-hover-color</span>: <span class="variable">$btn</span>-default-hover-<span class="attribute">color</span>;</span><br><span class="line">  <span class="attr">--btn-default-hover-border-color</span>: <span class="variable">$btn</span>-default-hover-<span class="attribute">border-color</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (<span class="built_in">hexo-config</span>(<span class="string">&#x27;darkmode&#x27;</span>)) &#123;</span><br><span class="line">  <span class="keyword">@media</span> (<span class="attribute">prefers-color-scheme</span>: dark) &#123;</span><br><span class="line">    <span class="selector-pseudo">:root</span> &#123;</span><br><span class="line">      <span class="attr">--body-bg-color</span>: <span class="variable">$body</span>-bg-<span class="attribute">color</span>-dark;</span><br><span class="line">      <span class="attr">--content-bg-color</span>: <span class="variable">$content</span>-bg-<span class="attribute">color</span>-dark;</span><br><span class="line">      <span class="attr">--card-bg-color</span>: <span class="variable">$card</span>-bg-<span class="attribute">color</span>-dark;</span><br><span class="line">      <span class="attr">--text-color</span>: <span class="variable">$text</span>-<span class="attribute">color</span>-dark;</span><br><span class="line">      <span class="attr">--blockquote-color</span>: <span class="variable">$blockquote</span>-<span class="attribute">color</span>-dark;</span><br><span class="line">      <span class="attr">--link-color</span>: <span class="variable">$link</span>-<span class="attribute">color</span>-dark;</span><br><span class="line">      <span class="attr">--link-hover-color</span>: <span class="variable">$link</span>-hover-<span class="attribute">color</span>-dark;</span><br><span class="line">      <span class="attr">--brand-color</span>: <span class="variable">$brand</span>-<span class="attribute">color</span>-dark;</span><br><span class="line">      <span class="attr">--brand-hover-color</span>: <span class="variable">$brand</span>-hover-<span class="attribute">color</span>-dark;</span><br><span class="line">      <span class="attr">--table-row-odd-bg-color</span>: <span class="variable">$table</span>-row-odd-bg-<span class="attribute">color</span>-dark;</span><br><span class="line">      <span class="attr">--table-row-hover-bg-color</span>: <span class="variable">$table</span>-row-hover-bg-<span class="attribute">color</span>-dark;</span><br><span class="line">      <span class="attr">--menu-item-bg-color</span>: <span class="variable">$menu</span>-item-bg-<span class="attribute">color</span>-dark;</span><br><span class="line">      <span class="attr">--btn-default-bg</span>: <span class="variable">$btn</span>-default-bg-dark;</span><br><span class="line">      <span class="attr">--btn-default-color</span>: <span class="variable">$btn</span>-default-<span class="attribute">color</span>-dark;</span><br><span class="line">      <span class="attr">--btn-default-border-color</span>: <span class="variable">$btn</span>-default-<span class="attribute">border-color</span>-dark;</span><br><span class="line">      <span class="attr">--btn-default-hover-bg</span>: <span class="variable">$btn</span>-default-hover-bg-dark;</span><br><span class="line">      <span class="attr">--btn-default-hover-color</span>: <span class="variable">$btn</span>-default-hover-<span class="attribute">color</span>-dark;</span><br><span class="line">      <span class="attr">--btn-default-hover-border-color</span>: <span class="variable">$btn</span>-default-hover-<span class="attribute">border-color</span>-dark;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="selector-tag">img</span> &#123;</span><br><span class="line">      <span class="attribute">opacity</span>: .<span class="number">75</span>;</span><br><span class="line"></span><br><span class="line">      <span class="selector-pseudo">&amp;:hover</span> &#123;</span><br><span class="line">        <span class="attribute">opacity</span>: .<span class="number">9</span>;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>而在主题的 <code>next/source/css/_common/components/post/post.styl</code> 中对文章块的颜色设置如下:</p>
+<figure class="highlight styl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// row 35-48</span></span><br><span class="line">  <span class="keyword">if</span> (<span class="built_in">hexo-config</span>(<span class="string">&#x27;motion.transition.post_block&#x27;</span>)) &#123;</span><br><span class="line">    <span class="selector-class">.post-block</span> &#123;</span><br><span class="line">      <span class="attribute">opacity</span>: <span class="number">0</span>;</span><br><span class="line">      <span class="attribute">margin-top</span>: <span class="number">60px</span>;</span><br><span class="line">      <span class="attribute">margin-bottom</span>: <span class="number">60px</span>;</span><br><span class="line">      <span class="attribute">padding</span>: <span class="number">25px</span>;</span><br><span class="line">      <span class="attribute">background</span>:<span class="built_in">rgba</span>(<span class="number">255</span>,<span class="number">255</span>,<span class="number">255</span>,<span class="number">0.9</span>) none repeat scroll <span class="meta">!important</span>;</span><br><span class="line">      -webkit-<span class="attribute">box-shadow</span>: <span class="number">0</span> <span class="number">0</span> <span class="number">5px</span> <span class="built_in">rgba</span>(<span class="number">202</span>, <span class="number">203</span>, <span class="number">203</span>, .<span class="number">5</span>);</span><br><span class="line">      -moz-<span class="attribute">box-shadow</span>: <span class="number">0</span> <span class="number">0</span> <span class="number">5px</span> <span class="built_in">rgba</span>(<span class="number">202</span>, <span class="number">203</span>, <span class="number">204</span>, .<span class="number">5</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="selector-class">.pagination</span>, .comments&#123;</span><br><span class="line">      <span class="attribute">opacity</span>: <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<p>那这就简单了, 直接把最后的 <code>alpha</code> 通道设成 <code>0</code> 就可以了. 效果如下:</p>
+<p><img src="/images/2025/02/opacity/%E6%95%88%E6%9E%9C2.png" alt="图片加载失败! 这是第二张图, 文章背景也变成了深色, 但蛇引理的连接映射被一圈白色的东西包裹, 凸显出来了" title="白　蛇　传"></p>
+<p>这说明当时我们直接用 <code>currentColor</code> 作替换是不合理的, 至少检测的不够全. 去看了使用颜色变量的地方, 也就是 <code>next/source/css/_colors.styl</code>, 能够确认亮色和暗色模式下使用的都是 <code>--content-bg-color</code>, 所以我们需要做的其实是把 <code>svg</code> 里面的 <code>#fff</code> 替换成 <code>var(--content-bg-color)</code>, 同理需要把所有的 <code>#000</code> 替换成 <code>var(--text-color)</code>. 再简单修改下之前改过的 <code>/node_modules/hexo-filter-tikzjax/dist/insert_svg.js</code>, 这下终于没问题了:</p>
+<p><img src="/images/2025/02/opacity/%E6%9C%80%E7%BB%88%E6%95%88%E6%9E%9C.png" alt="图片加载失败! 这是第三张图, 蛇引理的连接映射也可以正常显示了" title="解决! "></p>
+<p>黑暗模式都加上了, 那不得把背景也改一改? 为了达成背景自动随模式切换的效果, 我直接照搬了 <code>_colors.styl</code> 中的解决方案, 即使用 <code>@media (prefers-color-scheme: light | dark)</code> 来判断当前的模式. 把原来 <code>/source/_data/styles.styl</code> 中设置背景的部分改为:</p>
+<figure class="highlight styl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@media</span> (<span class="attribute">prefers-color-scheme</span>: light) &#123;</span><br><span class="line">  body&#123;</span><br><span class="line">    <span class="attribute">background</span>: <span class="built_in">url</span>(/images/background_light.jpg);</span><br><span class="line">    <span class="attribute">background-size</span>: cover;</span><br><span class="line">    <span class="attribute">background-repeat</span>: no-repeat;</span><br><span class="line">    <span class="attribute">background-attachment</span>: fixed;</span><br><span class="line">    <span class="attribute">background-position</span>: center;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">@media</span> (<span class="attribute">prefers-color-scheme</span>: dark) &#123;</span><br><span class="line">  body&#123;</span><br><span class="line">    <span class="attribute">background</span>: <span class="built_in">url</span>(/images/background_dark.jpg);</span><br><span class="line">    <span class="attribute">background-size</span>: cover;</span><br><span class="line">    <span class="attribute">background-repeat</span>: no-repeat;</span><br><span class="line">    <span class="attribute">background-attachment</span>: fixed;</span><br><span class="line">    <span class="attribute">background-position</span>: center;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>我也不知道为什么相同的部分拿出来就不行了, 但至少现在这样没问题. 顺便通过 F12 得知网页顶端的黑条叫做 <code>headband</code>, 于是再在 <code>/source/_data/styles.styl</code> 里面加一句 <code>.headband {height: 0px;}</code> 就能从视觉上把他去掉.</p>
+<p>这里就不再用新的背景来截效果图了, 各位自己去体会就好.</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/posts/2025/02/background-changed/" rel="prev" title="更换了背景图片">
+                  <i class="fa fa-angle-left"></i> 更换了背景图片
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/posts/2025/02/fwenderman/" rel="next" title="今 (前? ) 日 MC: 修改了小黑能搬起方块的特性">
+                  今 (前? ) 日 MC: 修改了小黑能搬起方块的特性 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  
+  <div class="comments giscus-container">
+  </div>
+  
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2022 – 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-cube"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Brkhu</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<script class="next-config" data-name="giscus" type="application/json">{"enable":true,"repo":"Brkhu/Brkhu.github.io","repo_id":"R_kgDOHPQJ_Q","category":"Announcements","category_id":"DIC_kwDOHPQJ_c4CxD07","mapping":"url","strict":1,"reactions_enabled":1,"emit_metadata":0,"theme":"preferred_color_scheme","lang":"zh-CN","crossorigin":"anonymous","input_position":"bottom","loading":"lazy"}</script>
+
+<script>
+document.addEventListener('page:loaded', () => {
+  if (!CONFIG.page.comments) return;
+
+  NexT.utils.loadComments('.giscus-container')
+    .then(() => NexT.utils.getScript('https://giscus.app/client.js', {
+      attributes: {
+        async                   : true,
+        crossOrigin             : 'anonymous',
+        'data-repo'             : CONFIG.giscus.repo,
+        'data-repo-id'          : CONFIG.giscus.repo_id,
+        'data-category'         : CONFIG.giscus.category,
+        'data-category-id'      : CONFIG.giscus.category_id,
+        'data-mapping'          : CONFIG.giscus.mapping,
+        'data-strict'           : CONFIG.giscus.strict,
+        'data-reactions-enabled': CONFIG.giscus.reactions_enabled,
+        'data-emit-metadata'    : CONFIG.giscus.emit_metadata,
+        'data-theme'            : CONFIG.giscus.theme,
+        'data-lang'             : CONFIG.giscus.lang,
+        'data-input-position'   : CONFIG.giscus.input_position,
+        'data-loading'          : CONFIG.giscus.loading
+      },
+      parentNode: document.querySelector('.giscus-container')
+    }));
+});
+</script>
+
+</body>
+</html>

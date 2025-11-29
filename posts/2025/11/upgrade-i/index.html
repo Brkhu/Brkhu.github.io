@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 8.0.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"brkhu.fun","root":"/","images":"/images","scheme":"Pisces","darkmode":true,"version":"8.25.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"stackoverflow-light","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"language":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="现在是 11 月 29 号的下午四点。会赢吗 之前我说的  最██的是，我发现之前使用的 hexo-renderer-kramed 是一个将近十年前的 hexo-renderer-marked 的分支，里面很多语法早就不支持了；在这十年间，hexo-renderer-marked 将 markdown 转为 html 的匹配逻辑（尤其是 em 和 strong）演变到了非常哈人的程度，把这个调好还">
+<meta property="og:type" content="article">
+<meta property="og:title" content="网站升级之一">
+<meta property="og:url" content="http://brkhu.fun/posts/2025/11/upgrade-i/index.html">
+<meta property="og:site_name" content="Brkhu用来瞎搞的地方">
+<meta property="og:description" content="现在是 11 月 29 号的下午四点。会赢吗 之前我说的  最██的是，我发现之前使用的 hexo-renderer-kramed 是一个将近十年前的 hexo-renderer-marked 的分支，里面很多语法早就不支持了；在这十年间，hexo-renderer-marked 将 markdown 转为 html 的匹配逻辑（尤其是 em 和 strong）演变到了非常哈人的程度，把这个调好还">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-11-29T14:53:05.000Z">
+<meta property="article:modified_time" content="2025-11-29T14:53:05.124Z">
+<meta property="article:author" content="Brkhu">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://brkhu.fun/posts/2025/11/upgrade-i/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://brkhu.fun/posts/2025/11/upgrade-i/","path":"/posts/2025/11/upgrade-i/","title":"网站升级之一"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>网站升级之一 | Brkhu用来瞎搞的地方</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Brkhu用来瞎搞的地方</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Brkhu"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Brkhu</p>
+  <div class="site-description" itemprop="description">简介？好像是这里</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">21</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Brkhu" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Brkhu" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:w-zc21@mails.tsinghua.edu.cn" title="E-Mail → mailto:w-zc21@mails.tsinghua.edu.cn" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.zhihu.com/people/yi-ge-pu-tong-ren-45" title="知乎 → https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;yi-ge-pu-tong-ren-45" rel="noopener me" target="_blank"><i class="fab fa-zhihu fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://space.bilibili.com/38619348" title="Bilibili → https:&#x2F;&#x2F;space.bilibili.com&#x2F;38619348" rel="noopener me" target="_blank"><i class="fab fa-bilibili fa-fw"></i></a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="sidebar-inner sidebar-blogroll">
+      <div class="links-of-blogroll animated">
+        <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+          链接
+        </div>
+        <ul class="links-of-blogroll-list">
+            <li class="links-of-blogroll-item">
+              <a href="https://algebratv.com/" title="https:&#x2F;&#x2F;algebratv.com" rel="noopener" target="_blank">Not A Goalkeeper 的个人网站</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://hexo.lukechen.lc/" title="https:&#x2F;&#x2F;hexo.lukechen.lc" rel="noopener" target="_blank">Luke Chen 的个人网站</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://vegetablefj.github.io/blog" title="https:&#x2F;&#x2F;vegetablefj.github.io&#x2F;blog" rel="noopener" target="_blank">vegetable fj 的个人网站</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://luody21.github.io/" title="https:&#x2F;&#x2F;luody21.github.io" rel="noopener" target="_blank">bdpqpqbd 的个人网站</a>
+            </li>
+        </ul>
+      </div>
+    </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://brkhu.fun/posts/2025/11/upgrade-i/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Brkhu">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Brkhu用来瞎搞的地方">
+      <meta itemprop="description" content="简介？好像是这里">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="网站升级之一 | Brkhu用来瞎搞的地方">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          网站升级之一
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2025-11-29 22:53:05" itemprop="dateCreated datePublished" datetime="2025-11-29T22:53:05+08:00">2025-11-29</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>现在是 11 月 29 号的下午四点。会赢吗</p>
+<p>之前我说的</p>
+<blockquote>
+<p>最██的是，我发现之前使用的 hexo-renderer-kramed 是一个将近十年前的 hexo-renderer-marked 的分支，里面很多语法早就不支持了；在这十年间，hexo-renderer-marked 将 markdown 转为 html 的匹配逻辑（尤其是 em 和 strong）演变到了非常哈人的程度，把这个调好还需要研究好久。</p>
+</blockquote>
+<p>其实非常容易绕过：如果使用 <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo-renderer-marked">hexo-renderer-marked</a>，它虽然确实会调用 <a target="_blank" rel="noopener" href="https://github.com/markedjs/marked">marked</a>，这里面确实有很多哈人的正则表达式，但是 marked 提供了扩展语法 <a target="_blank" rel="noopener" href="https://marked.js.org/using_pro">marked.use()</a>，而 hexo-renderer-marked 只是把它包装了一下。</p>
+<span id="more"></span>
+
+<p>marked 处理字符串的逻辑非常简单：按照某个顺序用正则表达式匹配输入的 markdown 字符串，每匹配到一段就将其删去，并在另一个列表中添加一个对应内容的 token。所以如果我有如下的 tex 代码：</p>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">测试一下 <span class="built_in">$</span> {A}<span class="built_in">_</span>* <span class="built_in">$</span> 和 <span class="built_in">$</span> {B}<span class="built_in">_</span>* <span class="built_in">$</span></span><br><span class="line"></span><br><span class="line">还有 <span class="built_in">$</span> *<span class="built_in">_</span>* <span class="built_in">$</span></span><br><span class="line"></span><br><span class="line">以及 <span class="built_in">$</span> A<span class="built_in">^</span>{**} <span class="built_in">$</span> 和 <span class="built_in">$</span> B<span class="built_in">^</span>{**} <span class="built_in">$</span></span><br><span class="line"></span><br><span class="line">最后的 <span class="built_in">$</span> {A}<span class="built_in">_</span>{**} <span class="built_in">$</span> 与 <span class="built_in">$</span> B<span class="built_in">^</span>{**}<span class="built_in">_</span>1 <span class="built_in">$</span></span><br></pre></td></tr></table></figure>
+<p>那么它被 hexo-renderer-marked 搞出来的就会是</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"post-body"</span> <span class="attr">itemprop</span>=<span class="string">"articleBody"</span>&gt;</span><span class="tag">&lt;<span class="name">p</span>&gt;</span>测试一下 $ {A}<span class="tag">&lt;<span class="name">em</span>&gt;</span>* $ 和 $ {B}<span class="tag">&lt;/<span class="name">em</span>&gt;</span>* $<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>还有 $ <span class="tag">&lt;<span class="name">em</span>&gt;</span>_<span class="tag">&lt;/<span class="name">em</span>&gt;</span> $<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>以及 $ A^{<span class="tag">&lt;<span class="name">strong</span>&gt;</span>} $ 和 $ B^{<span class="tag">&lt;/<span class="name">strong</span>&gt;</span>} $<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>最后的 $ {A}_{<span class="tag">&lt;<span class="name">strong</span>&gt;</span>} $ 与 $ B^{<span class="tag">&lt;/<span class="name">strong</span>&gt;</span>}_1 $<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>而如果装了 hexo-filter-mathjax，它又会直接生成 svg，文件又会再被搞成下面一大坨</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"post-body"</span> <span class="attr">itemprop</span>=<span class="string">"articleBody"</span>&gt;</span><span class="tag">&lt;<span class="name">p</span>&gt;</span>测试一下 $ {A}<span class="tag">&lt;<span class="name">em</span>&gt;</span>* <span class="tag">&lt;<span class="name">mjx-container</span> <span class="attr">class</span>=<span class="string">"MathJax"</span> <span class="attr">jax</span>=<span class="string">"SVG"</span>&gt;</span><span class="tag">&lt;<span class="name">svg</span> <span class="attr">style</span>=<span class="string">"vertical-align: -0.452ex;"</span> <span class="attr">xmlns</span>=<span class="string">"http://www.w3.org/2000/svg"</span> <span class="attr">width</span>=<span class="string">"2.262ex"</span> <span class="attr">height</span>=<span class="string">"2.149ex"</span> <span class="attr">role</span>=<span class="string">"img"</span> <span class="attr">focusable</span>=<span class="string">"false"</span> <span class="attr">viewBox</span>=<span class="string">"0 -750 1000 950"</span>&gt;</span><span class="tag">&lt;<span class="name">g</span> <span class="attr">stroke</span>=<span class="string">"currentColor"</span> <span class="attr">fill</span>=<span class="string">"currentColor"</span> <span class="attr">stroke-width</span>=<span class="string">"0"</span> <span class="attr">transform</span>=<span class="string">"scale(1,-1)"</span>&gt;</span><span class="tag">&lt;<span class="name">g</span> <span class="attr">data-mml-node</span>=<span class="string">"math"</span>&gt;</span><span class="tag">&lt;<span class="name">g</span> <span class="attr">data-mml-node</span>=<span class="string">"mi"</span>&gt;</span><span class="tag">&lt;<span class="name">text</span> <span class="attr">data-variant</span>=<span class="string">"normal"</span> <span class="attr">transform</span>=<span class="string">"scale(1,-1)"</span> <span class="attr">font-size</span>=<span class="string">"884px"</span> <span class="attr">font-family</span>=<span class="string">"serif"</span>&gt;</span>和<span class="tag">&lt;/<span class="name">text</span>&gt;</span><span class="tag">&lt;/<span class="name">g</span>&gt;</span><span class="tag">&lt;/<span class="name">g</span>&gt;</span><span class="tag">&lt;/<span class="name">g</span>&gt;</span><span class="tag">&lt;/<span class="name">svg</span>&gt;</span><span class="tag">&lt;/<span class="name">mjx-container</span>&gt;</span> {B}<span class="tag">&lt;/<span class="name">em</span>&gt;</span>* $<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>还有 $ <span class="tag">&lt;<span class="name">em</span>&gt;</span>_<span class="tag">&lt;/<span class="name">em</span>&gt;</span> $<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>以及 $ A^{<span class="tag">&lt;<span class="name">strong</span>&gt;</span>} <span class="tag">&lt;<span class="name">mjx-container</span> <span class="attr">class</span>=<span class="string">"MathJax"</span> <span class="attr">jax</span>=<span class="string">"SVG"</span>&gt;</span><span class="tag">&lt;<span class="name">svg</span> <span class="attr">style</span>=<span class="string">"vertical-align: -0.452ex;"</span> <span class="attr">xmlns</span>=<span class="string">"http://www.w3.org/2000/svg"</span> <span class="attr">width</span>=<span class="string">"2.262ex"</span> <span class="attr">height</span>=<span class="string">"2.149ex"</span> <span class="attr">role</span>=<span class="string">"img"</span> <span class="attr">focusable</span>=<span class="string">"false"</span> <span class="attr">viewBox</span>=<span class="string">"0 -750 1000 950"</span>&gt;</span><span class="tag">&lt;<span class="name">g</span> <span class="attr">stroke</span>=<span class="string">"currentColor"</span> <span class="attr">fill</span>=<span class="string">"currentColor"</span> <span class="attr">stroke-width</span>=<span class="string">"0"</span> <span class="attr">transform</span>=<span class="string">"scale(1,-1)"</span>&gt;</span><span class="tag">&lt;<span class="name">g</span> <span class="attr">data-mml-node</span>=<span class="string">"math"</span>&gt;</span><span class="tag">&lt;<span class="name">g</span> <span class="attr">data-mml-node</span>=<span class="string">"mi"</span>&gt;</span><span class="tag">&lt;<span class="name">text</span> <span class="attr">data-variant</span>=<span class="string">"normal"</span> <span class="attr">transform</span>=<span class="string">"scale(1,-1)"</span> <span class="attr">font-size</span>=<span class="string">"884px"</span> <span class="attr">font-family</span>=<span class="string">"serif"</span>&gt;</span>和<span class="tag">&lt;/<span class="name">text</span>&gt;</span><span class="tag">&lt;/<span class="name">g</span>&gt;</span><span class="tag">&lt;/<span class="name">g</span>&gt;</span><span class="tag">&lt;/<span class="name">g</span>&gt;</span><span class="tag">&lt;/<span class="name">svg</span>&gt;</span><span class="tag">&lt;/<span class="name">mjx-container</span>&gt;</span> B^{<span class="tag">&lt;/<span class="name">strong</span>&gt;</span>} $<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>最后的 $ {A}_{<span class="tag">&lt;<span class="name">strong</span>&gt;</span>} <span class="tag">&lt;<span class="name">mjx-container</span> <span class="attr">class</span>=<span class="string">"MathJax"</span> <span class="attr">jax</span>=<span class="string">"SVG"</span>&gt;</span><span class="tag">&lt;<span class="name">svg</span> <span class="attr">style</span>=<span class="string">"vertical-align: -0.452ex;"</span> <span class="attr">xmlns</span>=<span class="string">"http://www.w3.org/2000/svg"</span> <span class="attr">width</span>=<span class="string">"2.262ex"</span> <span class="attr">height</span>=<span class="string">"2.149ex"</span> <span class="attr">role</span>=<span class="string">"img"</span> <span class="attr">focusable</span>=<span class="string">"false"</span> <span class="attr">viewBox</span>=<span class="string">"0 -750 1000 950"</span>&gt;</span><span class="tag">&lt;<span class="name">g</span> <span class="attr">stroke</span>=<span class="string">"currentColor"</span> <span class="attr">fill</span>=<span class="string">"currentColor"</span> <span class="attr">stroke-width</span>=<span class="string">"0"</span> <span class="attr">transform</span>=<span class="string">"scale(1,-1)"</span>&gt;</span><span class="tag">&lt;<span class="name">g</span> <span class="attr">data-mml-node</span>=<span class="string">"math"</span>&gt;</span><span class="tag">&lt;<span class="name">g</span> <span class="attr">data-mml-node</span>=<span class="string">"mi"</span>&gt;</span><span class="tag">&lt;<span class="name">text</span> <span class="attr">data-variant</span>=<span class="string">"normal"</span> <span class="attr">transform</span>=<span class="string">"scale(1,-1)"</span> <span class="attr">font-size</span>=<span class="string">"884px"</span> <span class="attr">font-family</span>=<span class="string">"serif"</span>&gt;</span>与<span class="tag">&lt;/<span class="name">text</span>&gt;</span><span class="tag">&lt;/<span class="name">g</span>&gt;</span><span class="tag">&lt;/<span class="name">g</span>&gt;</span><span class="tag">&lt;/<span class="name">g</span>&gt;</span><span class="tag">&lt;/<span class="name">svg</span>&gt;</span><span class="tag">&lt;/<span class="name">mjx-container</span>&gt;</span> B^{<span class="tag">&lt;/<span class="name">strong</span>&gt;</span>}_1 $<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>这该怎么办呢？</p>
+<p>很好的一点是，marked 特地把自定义的 token 种类放到了最前面，所以我们只需要用保留的接口自定义一个 token 来匹配数学环境，之后把内容原样输出。让 Gemini 给我写了一个：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* global hexo */</span></span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">'use strict'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 定义我们的 Marked 扩展</span></span><br><span class="line"><span class="keyword">const</span> markedMathExtension = {</span><br><span class="line">  <span class="attr">name</span>: <span class="string">'math'</span>, <span class="comment">// 扩展名</span></span><br><span class="line">  <span class="attr">level</span>: <span class="string">'inline'</span>, <span class="comment">// 这是一个行内规则</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">// 1. 定义 Tokenizer (分词器)</span></span><br><span class="line">  <span class="comment">// -------------------------</span></span><br><span class="line">  </span><br><span class="line">  <span class="comment">// start() 是一个可选的优化函数，它告诉 marked 何时开始检查我们的 tokenizer</span></span><br><span class="line">  <span class="comment">// 如果找不到 '$'，marked 就会跳过这个 tokenizer，提高效率</span></span><br><span class="line">  <span class="title function_">start</span>(<span class="params">src</span>) {</span><br><span class="line">    <span class="keyword">return</span> src.<span class="title function_">indexOf</span>(<span class="string">'$'</span>);</span><br><span class="line">  },</span><br><span class="line"></span><br><span class="line">  <span class="title function_">tokenizer</span>(<span class="params">src, tokens</span>) {</span><br><span class="line">    <span class="comment">// 匹配块级公式 $$...$$ 和 (equation(*)|gather(*)|align(*) 这三个指定的环境</span></span><br><span class="line">    <span class="keyword">const</span> blockRule = <span class="regexp">/^\s*(?:\$\$|\\begin\{(equation\**|gather\**|align\**)\})([\s\S]+?)(?:\$\$|\\end\{\1\})\s*/</span>;</span><br><span class="line">    <span class="keyword">let</span> match = blockRule.<span class="title function_">exec</span>(src);</span><br><span class="line">    <span class="keyword">if</span> (match) {</span><br><span class="line">      <span class="keyword">return</span> {</span><br><span class="line">        <span class="attr">type</span>: <span class="string">'math'</span>,</span><br><span class="line">        <span class="attr">raw</span>: match[<span class="number">0</span>],</span><br><span class="line">        <span class="comment">// 如果 match[1] 存在，说明是 \begin{} 环境，否则是 $$</span></span><br><span class="line">        <span class="comment">// 我们需要把 \begin{} 和 \end{} 加回去，以便 hexo-filter-mathjax 处理</span></span><br><span class="line">        <span class="attr">text</span>: match[<span class="number">1</span>] ? <span class="string">`\\begin{<span class="subst">${match[<span class="number">1</span>]}</span>}<span class="subst">${match[<span class="number">2</span>]}</span>\\end{<span class="subst">${match[<span class="number">1</span>]}</span>}`</span> : match[<span class="number">2</span>].<span class="title function_">trim</span>(),</span><br><span class="line">        <span class="attr">displayMode</span>: <span class="literal">true</span>,</span><br><span class="line">      };</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 匹配行内公式 $...$ (需要小心处理转义的 \$)</span></span><br><span class="line">    <span class="comment">// const inlineRule = /^\$((?:\\\$|[^$])+)\$/;</span></span><br><span class="line">    <span class="keyword">const</span> inlineRule = <span class="regexp">/^\$((?:\\.|[^$])+?)\$/</span>;</span><br><span class="line">    match = inlineRule.<span class="title function_">exec</span>(src);</span><br><span class="line">    <span class="keyword">if</span> (match) {</span><br><span class="line">      <span class="keyword">return</span> {</span><br><span class="line">        <span class="attr">type</span>: <span class="string">'math'</span>,</span><br><span class="line">        <span class="attr">raw</span>: match[<span class="number">0</span>], <span class="comment">// 例如 "$a_b$"</span></span><br><span class="line">        <span class="attr">text</span>: match[<span class="number">1</span>].<span class="title function_">trim</span>(), <span class="comment">// 例如 "a_b"</span></span><br><span class="line">        <span class="attr">displayMode</span>: <span class="literal">false</span>, <span class="comment">// 标记为行内公式</span></span><br><span class="line">      };</span><br><span class="line">    }</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 如果没有匹配，必须返回 undefined (或 false)</span></span><br><span class="line">  },</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 2. 定义 Renderer (渲染器)</span></span><br><span class="line">  <span class="comment">// -------------------------</span></span><br><span class="line">  <span class="title function_">renderer</span>(<span class="params">token</span>) {</span><br><span class="line">    <span class="comment">// 我们的目标是把 token "还原" 成原始的 TeX 代码，</span></span><br><span class="line">    <span class="comment">// 以便后续的 hexo-filter-mathjax 能正确处理它。</span></span><br><span class="line">    <span class="keyword">if</span> (token.<span class="property">type</span> === <span class="string">'math'</span>) {</span><br><span class="line">    <span class="comment">//   return token.raw;</span></span><br><span class="line">      <span class="keyword">if</span> (token.<span class="property">displayMode</span>) {</span><br><span class="line">        <span class="keyword">if</span> (token.<span class="property">text</span>.<span class="title function_">startsWith</span>(<span class="string">'\\begin'</span>)) {</span><br><span class="line">          <span class="keyword">return</span> token.<span class="property">text</span>;</span><br><span class="line">        } <span class="keyword">else</span> {</span><br><span class="line">          <span class="keyword">return</span> <span class="string">`$$<span class="subst">${token.text}</span>$$`</span>;</span><br><span class="line">        }</span><br><span class="line">      } <span class="keyword">else</span> {</span><br><span class="line">        <span class="comment">// 对于行内公式，用 `$...$` 包裹</span></span><br><span class="line">        <span class="keyword">return</span> <span class="string">`$<span class="subst">${token.text}</span>$`</span>;</span><br><span class="line">      }</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 如果不是我们的 token，返回 false，让 marked 使用默认渲染器</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">  }</span><br><span class="line">};</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 3. 向 Hexo 注册我们的扩展</span></span><br><span class="line"><span class="comment">// -------------------------</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用 'marked:extensions' 过滤器钩子</span></span><br><span class="line">hexo.<span class="property">extend</span>.<span class="property">filter</span>.<span class="title function_">register</span>(<span class="string">'marked:extensions'</span>, <span class="keyword">function</span>(<span class="params">extensions</span>) {</span><br><span class="line">  <span class="comment">// 将我们的扩展对象添加到 extensions 数组中</span></span><br><span class="line">  extensions.<span class="title function_">push</span>(markedMathExtension);</span><br><span class="line">});</span><br></pre></td></tr></table></figure>
+<p>这样一来甚至连 hexo-filter-mathjax 都不需要了。结果就是：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"post-body"</span> <span class="attr">itemprop</span>=<span class="string">"articleBody"</span>&gt;</span><span class="tag">&lt;<span class="name">p</span>&gt;</span>测试一下 ${A}_*$ 和 ${B}_*$<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>还有 $*_*$<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>以及 $A^{**}$ 和 $B^{**}$<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>最后的 ${A}_{**}$ 与 $B^{**}_1$<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>最终效果：</p>
+<blockquote>
+<p>测试一下 <mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.283ex;" xmlns="http://www.w3.org/2000/svg" width="2.685ex" height="1.903ex" role="img" focusable="false" viewBox="0 -716 1186.6 841.3"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="msub"><g data-mml-node="TeXAtom" data-mjx-texclass="ORD"><g data-mml-node="mi"><path data-c="1D434" d="M208 74Q208 50 254 46Q272 46 272 35Q272 34 270 22Q267 8 264 4T251 0Q249 0 239 0T205 1T141 2Q70 2 50 0H42Q35 7 35 11Q37 38 48 46H62Q132 49 164 96Q170 102 345 401T523 704Q530 716 547 716H555H572Q578 707 578 706L606 383Q634 60 636 57Q641 46 701 46Q726 46 726 36Q726 34 723 22Q720 7 718 4T704 0Q701 0 690 0T651 1T578 2Q484 2 455 0H443Q437 6 437 9T439 27Q443 40 445 43L449 46H469Q523 49 533 63L521 213H283L249 155Q208 86 208 74ZM516 260Q516 271 504 416T490 562L463 519Q447 492 400 412L310 260L413 259Q516 259 516 260Z"></path></g></g><g data-mml-node="mo" transform="translate(783,-150) scale(0.707)"><path data-c="2217" d="M229 286Q216 420 216 436Q216 454 240 464Q241 464 245 464T251 465Q263 464 273 456T283 436Q283 419 277 356T270 286L328 328Q384 369 389 372T399 375Q412 375 423 365T435 338Q435 325 425 315Q420 312 357 282T289 250L355 219L425 184Q434 175 434 161Q434 146 425 136T401 125Q393 125 383 131T328 171L270 213Q283 79 283 63Q283 53 276 44T250 35Q231 35 224 44T216 63Q216 80 222 143T229 213L171 171Q115 130 110 127Q106 124 100 124Q87 124 76 134T64 161Q64 166 64 169T67 175T72 181T81 188T94 195T113 204T138 215T170 230T210 250L74 315Q65 324 65 338Q65 353 74 363T98 374Q106 374 116 368T171 328L229 286Z"></path></g></g></g></g></svg></mjx-container> 和 <mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.283ex;" xmlns="http://www.w3.org/2000/svg" width="2.705ex" height="1.829ex" role="img" focusable="false" viewBox="0 -683 1195.6 808.3"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="msub"><g data-mml-node="TeXAtom" data-mjx-texclass="ORD"><g data-mml-node="mi"><path data-c="1D435" d="M231 637Q204 637 199 638T194 649Q194 676 205 682Q206 683 335 683Q594 683 608 681Q671 671 713 636T756 544Q756 480 698 429T565 360L555 357Q619 348 660 311T702 219Q702 146 630 78T453 1Q446 0 242 0Q42 0 39 2Q35 5 35 10Q35 17 37 24Q42 43 47 45Q51 46 62 46H68Q95 46 128 49Q142 52 147 61Q150 65 219 339T288 628Q288 635 231 637ZM649 544Q649 574 634 600T585 634Q578 636 493 637Q473 637 451 637T416 636H403Q388 635 384 626Q382 622 352 506Q352 503 351 500L320 374H401Q482 374 494 376Q554 386 601 434T649 544ZM595 229Q595 273 572 302T512 336Q506 337 429 337Q311 337 310 336Q310 334 293 263T258 122L240 52Q240 48 252 48T333 46Q422 46 429 47Q491 54 543 105T595 229Z"></path></g></g><g data-mml-node="mo" transform="translate(792,-150) scale(0.707)"><path data-c="2217" d="M229 286Q216 420 216 436Q216 454 240 464Q241 464 245 464T251 465Q263 464 273 456T283 436Q283 419 277 356T270 286L328 328Q384 369 389 372T399 375Q412 375 423 365T435 338Q435 325 425 315Q420 312 357 282T289 250L355 219L425 184Q434 175 434 161Q434 146 425 136T401 125Q393 125 383 131T328 171L270 213Q283 79 283 63Q283 53 276 44T250 35Q231 35 224 44T216 63Q216 80 222 143T229 213L171 171Q115 130 110 127Q106 124 100 124Q87 124 76 134T64 161Q64 166 64 169T67 175T72 181T81 188T94 195T113 204T138 215T170 230T210 250L74 315Q65 324 65 338Q65 353 74 363T98 374Q106 374 116 368T171 328L229 286Z"></path></g></g></g></g></svg></mjx-container></p>
+<p>还有 <mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.283ex;" xmlns="http://www.w3.org/2000/svg" width="2.119ex" height="1.335ex" role="img" focusable="false" viewBox="0 -465 936.6 590.3"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="msub"><g data-mml-node="mo"><path data-c="2217" d="M229 286Q216 420 216 436Q216 454 240 464Q241 464 245 464T251 465Q263 464 273 456T283 436Q283 419 277 356T270 286L328 328Q384 369 389 372T399 375Q412 375 423 365T435 338Q435 325 425 315Q420 312 357 282T289 250L355 219L425 184Q434 175 434 161Q434 146 425 136T401 125Q393 125 383 131T328 171L270 213Q283 79 283 63Q283 53 276 44T250 35Q231 35 224 44T216 63Q216 80 222 143T229 213L171 171Q115 130 110 127Q106 124 100 124Q87 124 76 134T64 161Q64 166 64 169T67 175T72 181T81 188T94 195T113 204T138 215T170 230T210 250L74 315Q65 324 65 338Q65 353 74 363T98 374Q106 374 116 368T171 328L229 286Z"></path></g><g data-mml-node="mo" transform="translate(533,-150) scale(0.707)"><path data-c="2217" d="M229 286Q216 420 216 436Q216 454 240 464Q241 464 245 464T251 465Q263 464 273 456T283 436Q283 419 277 356T270 286L328 328Q384 369 389 372T399 375Q412 375 423 365T435 338Q435 325 425 315Q420 312 357 282T289 250L355 219L425 184Q434 175 434 161Q434 146 425 136T401 125Q393 125 383 131T328 171L270 213Q283 79 283 63Q283 53 276 44T250 35Q231 35 224 44T216 63Q216 80 222 143T229 213L171 171Q115 130 110 127Q106 124 100 124Q87 124 76 134T64 161Q64 166 64 169T67 175T72 181T81 188T94 195T113 204T138 215T170 230T210 250L74 315Q65 324 65 338Q65 353 74 363T98 374Q106 374 116 368T171 328L229 286Z"></path></g></g></g></g></svg></mjx-container></p>
+<p>以及 <mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: 0;" xmlns="http://www.w3.org/2000/svg" width="3.484ex" height="1.62ex" role="img" focusable="false" viewBox="0 -716 1540.1 716"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="msup"><g data-mml-node="mi"><path data-c="1D434" d="M208 74Q208 50 254 46Q272 46 272 35Q272 34 270 22Q267 8 264 4T251 0Q249 0 239 0T205 1T141 2Q70 2 50 0H42Q35 7 35 11Q37 38 48 46H62Q132 49 164 96Q170 102 345 401T523 704Q530 716 547 716H555H572Q578 707 578 706L606 383Q634 60 636 57Q641 46 701 46Q726 46 726 36Q726 34 723 22Q720 7 718 4T704 0Q701 0 690 0T651 1T578 2Q484 2 455 0H443Q437 6 437 9T439 27Q443 40 445 43L449 46H469Q523 49 533 63L521 213H283L249 155Q208 86 208 74ZM516 260Q516 271 504 416T490 562L463 519Q447 492 400 412L310 260L413 259Q516 259 516 260Z"></path></g><g data-mml-node="TeXAtom" transform="translate(783,363) scale(0.707)" data-mjx-texclass="ORD"><g data-mml-node="mo"><path data-c="2217" d="M229 286Q216 420 216 436Q216 454 240 464Q241 464 245 464T251 465Q263 464 273 456T283 436Q283 419 277 356T270 286L328 328Q384 369 389 372T399 375Q412 375 423 365T435 338Q435 325 425 315Q420 312 357 282T289 250L355 219L425 184Q434 175 434 161Q434 146 425 136T401 125Q393 125 383 131T328 171L270 213Q283 79 283 63Q283 53 276 44T250 35Q231 35 224 44T216 63Q216 80 222 143T229 213L171 171Q115 130 110 127Q106 124 100 124Q87 124 76 134T64 161Q64 166 64 169T67 175T72 181T81 188T94 195T113 204T138 215T170 230T210 250L74 315Q65 324 65 338Q65 353 74 363T98 374Q106 374 116 368T171 328L229 286Z"></path></g><g data-mml-node="mo" transform="translate(500,0)"><path data-c="2217" d="M229 286Q216 420 216 436Q216 454 240 464Q241 464 245 464T251 465Q263 464 273 456T283 436Q283 419 277 356T270 286L328 328Q384 369 389 372T399 375Q412 375 423 365T435 338Q435 325 425 315Q420 312 357 282T289 250L355 219L425 184Q434 175 434 161Q434 146 425 136T401 125Q393 125 383 131T328 171L270 213Q283 79 283 63Q283 53 276 44T250 35Q231 35 224 44T216 63Q216 80 222 143T229 213L171 171Q115 130 110 127Q106 124 100 124Q87 124 76 134T64 161Q64 166 64 169T67 175T72 181T81 188T94 195T113 204T138 215T170 230T210 250L74 315Q65 324 65 338Q65 353 74 363T98 374Q106 374 116 368T171 328L229 286Z"></path></g></g></g></g></g></svg></mjx-container> 和 <mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: 0;" xmlns="http://www.w3.org/2000/svg" width="3.505ex" height="1.565ex" role="img" focusable="false" viewBox="0 -691.8 1549.1 691.8"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="msup"><g data-mml-node="mi"><path data-c="1D435" d="M231 637Q204 637 199 638T194 649Q194 676 205 682Q206 683 335 683Q594 683 608 681Q671 671 713 636T756 544Q756 480 698 429T565 360L555 357Q619 348 660 311T702 219Q702 146 630 78T453 1Q446 0 242 0Q42 0 39 2Q35 5 35 10Q35 17 37 24Q42 43 47 45Q51 46 62 46H68Q95 46 128 49Q142 52 147 61Q150 65 219 339T288 628Q288 635 231 637ZM649 544Q649 574 634 600T585 634Q578 636 493 637Q473 637 451 637T416 636H403Q388 635 384 626Q382 622 352 506Q352 503 351 500L320 374H401Q482 374 494 376Q554 386 601 434T649 544ZM595 229Q595 273 572 302T512 336Q506 337 429 337Q311 337 310 336Q310 334 293 263T258 122L240 52Q240 48 252 48T333 46Q422 46 429 47Q491 54 543 105T595 229Z"></path></g><g data-mml-node="TeXAtom" transform="translate(792,363) scale(0.707)" data-mjx-texclass="ORD"><g data-mml-node="mo"><path data-c="2217" d="M229 286Q216 420 216 436Q216 454 240 464Q241 464 245 464T251 465Q263 464 273 456T283 436Q283 419 277 356T270 286L328 328Q384 369 389 372T399 375Q412 375 423 365T435 338Q435 325 425 315Q420 312 357 282T289 250L355 219L425 184Q434 175 434 161Q434 146 425 136T401 125Q393 125 383 131T328 171L270 213Q283 79 283 63Q283 53 276 44T250 35Q231 35 224 44T216 63Q216 80 222 143T229 213L171 171Q115 130 110 127Q106 124 100 124Q87 124 76 134T64 161Q64 166 64 169T67 175T72 181T81 188T94 195T113 204T138 215T170 230T210 250L74 315Q65 324 65 338Q65 353 74 363T98 374Q106 374 116 368T171 328L229 286Z"></path></g><g data-mml-node="mo" transform="translate(500,0)"><path data-c="2217" d="M229 286Q216 420 216 436Q216 454 240 464Q241 464 245 464T251 465Q263 464 273 456T283 436Q283 419 277 356T270 286L328 328Q384 369 389 372T399 375Q412 375 423 365T435 338Q435 325 425 315Q420 312 357 282T289 250L355 219L425 184Q434 175 434 161Q434 146 425 136T401 125Q393 125 383 131T328 171L270 213Q283 79 283 63Q283 53 276 44T250 35Q231 35 224 44T216 63Q216 80 222 143T229 213L171 171Q115 130 110 127Q106 124 100 124Q87 124 76 134T64 161Q64 166 64 169T67 175T72 181T81 188T94 195T113 204T138 215T170 230T210 250L74 315Q65 324 65 338Q65 353 74 363T98 374Q106 374 116 368T171 328L229 286Z"></path></g></g></g></g></g></svg></mjx-container></p>
+<p>最后的 <mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.283ex;" xmlns="http://www.w3.org/2000/svg" width="3.484ex" height="1.903ex" role="img" focusable="false" viewBox="0 -716 1540.1 841.3"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="msub"><g data-mml-node="TeXAtom" data-mjx-texclass="ORD"><g data-mml-node="mi"><path data-c="1D434" d="M208 74Q208 50 254 46Q272 46 272 35Q272 34 270 22Q267 8 264 4T251 0Q249 0 239 0T205 1T141 2Q70 2 50 0H42Q35 7 35 11Q37 38 48 46H62Q132 49 164 96Q170 102 345 401T523 704Q530 716 547 716H555H572Q578 707 578 706L606 383Q634 60 636 57Q641 46 701 46Q726 46 726 36Q726 34 723 22Q720 7 718 4T704 0Q701 0 690 0T651 1T578 2Q484 2 455 0H443Q437 6 437 9T439 27Q443 40 445 43L449 46H469Q523 49 533 63L521 213H283L249 155Q208 86 208 74ZM516 260Q516 271 504 416T490 562L463 519Q447 492 400 412L310 260L413 259Q516 259 516 260Z"></path></g></g><g data-mml-node="TeXAtom" transform="translate(783,-150) scale(0.707)" data-mjx-texclass="ORD"><g data-mml-node="mo"><path data-c="2217" d="M229 286Q216 420 216 436Q216 454 240 464Q241 464 245 464T251 465Q263 464 273 456T283 436Q283 419 277 356T270 286L328 328Q384 369 389 372T399 375Q412 375 423 365T435 338Q435 325 425 315Q420 312 357 282T289 250L355 219L425 184Q434 175 434 161Q434 146 425 136T401 125Q393 125 383 131T328 171L270 213Q283 79 283 63Q283 53 276 44T250 35Q231 35 224 44T216 63Q216 80 222 143T229 213L171 171Q115 130 110 127Q106 124 100 124Q87 124 76 134T64 161Q64 166 64 169T67 175T72 181T81 188T94 195T113 204T138 215T170 230T210 250L74 315Q65 324 65 338Q65 353 74 363T98 374Q106 374 116 368T171 328L229 286Z"></path></g><g data-mml-node="mo" transform="translate(500,0)"><path data-c="2217" d="M229 286Q216 420 216 436Q216 454 240 464Q241 464 245 464T251 465Q263 464 273 456T283 436Q283 419 277 356T270 286L328 328Q384 369 389 372T399 375Q412 375 423 365T435 338Q435 325 425 315Q420 312 357 282T289 250L355 219L425 184Q434 175 434 161Q434 146 425 136T401 125Q393 125 383 131T328 171L270 213Q283 79 283 63Q283 53 276 44T250 35Q231 35 224 44T216 63Q216 80 222 143T229 213L171 171Q115 130 110 127Q106 124 100 124Q87 124 76 134T64 161Q64 166 64 169T67 175T72 181T81 188T94 195T113 204T138 215T170 230T210 250L74 315Q65 324 65 338Q65 353 74 363T98 374Q106 374 116 368T171 328L229 286Z"></path></g></g></g></g></g></svg></mjx-container> 与 <mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.595ex;" xmlns="http://www.w3.org/2000/svg" width="3.505ex" height="2.161ex" role="img" focusable="false" viewBox="0 -691.8 1549.1 955"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="msubsup"><g data-mml-node="mi"><path data-c="1D435" d="M231 637Q204 637 199 638T194 649Q194 676 205 682Q206 683 335 683Q594 683 608 681Q671 671 713 636T756 544Q756 480 698 429T565 360L555 357Q619 348 660 311T702 219Q702 146 630 78T453 1Q446 0 242 0Q42 0 39 2Q35 5 35 10Q35 17 37 24Q42 43 47 45Q51 46 62 46H68Q95 46 128 49Q142 52 147 61Q150 65 219 339T288 628Q288 635 231 637ZM649 544Q649 574 634 600T585 634Q578 636 493 637Q473 637 451 637T416 636H403Q388 635 384 626Q382 622 352 506Q352 503 351 500L320 374H401Q482 374 494 376Q554 386 601 434T649 544ZM595 229Q595 273 572 302T512 336Q506 337 429 337Q311 337 310 336Q310 334 293 263T258 122L240 52Q240 48 252 48T333 46Q422 46 429 47Q491 54 543 105T595 229Z"></path></g><g data-mml-node="TeXAtom" transform="translate(792,363) scale(0.707)" data-mjx-texclass="ORD"><g data-mml-node="mo"><path data-c="2217" d="M229 286Q216 420 216 436Q216 454 240 464Q241 464 245 464T251 465Q263 464 273 456T283 436Q283 419 277 356T270 286L328 328Q384 369 389 372T399 375Q412 375 423 365T435 338Q435 325 425 315Q420 312 357 282T289 250L355 219L425 184Q434 175 434 161Q434 146 425 136T401 125Q393 125 383 131T328 171L270 213Q283 79 283 63Q283 53 276 44T250 35Q231 35 224 44T216 63Q216 80 222 143T229 213L171 171Q115 130 110 127Q106 124 100 124Q87 124 76 134T64 161Q64 166 64 169T67 175T72 181T81 188T94 195T113 204T138 215T170 230T210 250L74 315Q65 324 65 338Q65 353 74 363T98 374Q106 374 116 368T171 328L229 286Z"></path></g><g data-mml-node="mo" transform="translate(500,0)"><path data-c="2217" d="M229 286Q216 420 216 436Q216 454 240 464Q241 464 245 464T251 465Q263 464 273 456T283 436Q283 419 277 356T270 286L328 328Q384 369 389 372T399 375Q412 375 423 365T435 338Q435 325 425 315Q420 312 357 282T289 250L355 219L425 184Q434 175 434 161Q434 146 425 136T401 125Q393 125 383 131T328 171L270 213Q283 79 283 63Q283 53 276 44T250 35Q231 35 224 44T216 63Q216 80 222 143T229 213L171 171Q115 130 110 127Q106 124 100 124Q87 124 76 134T64 161Q64 166 64 169T67 175T72 181T81 188T94 195T113 204T138 215T170 230T210 250L74 315Q65 324 65 338Q65 353 74 363T98 374Q106 374 116 368T171 328L229 286Z"></path></g></g><g data-mml-node="mn" transform="translate(792,-263.2) scale(0.707)"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path></g></g></g></g></svg></mjx-container></p>
+</blockquote>
+<p>完美。使用的时候只需要把上面那一大块丢到 scripts 文件夹下就可以。</p>
+<p>这样一来也不需要像之前那样修改对 markdown 语法的渲染规则了，偷偷改回来应该没有人会发现。</p>
+<hr>
+<p>好像不太完美，不用 hexo-filter-mathjax 好像在别处会有问题，反正没有影响还是加回来吧。这样的话还是要禁用自带的 mathjax，但总之不会出错了。</p>
+<hr>
+<p>网站的排版与之前有些细微的差别，但主体已经升级完成。祝贺 brkhu.fun 终于有了评论系统！</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/posts/2025/10/transparent-clippings-using-tikz-cd/" rel="prev" title="修改 TikZ-cd 的渲染方式">
+                  <i class="fa fa-angle-left"></i> 修改 TikZ-cd 的渲染方式
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  
+  <div class="comments giscus-container">
+  </div>
+  
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2022 – 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-cube"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Brkhu</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<script class="next-config" data-name="giscus" type="application/json">{"enable":true,"repo":"Brkhu/Brkhu.github.io","repo_id":"R_kgDOHPQJ_Q","category":"Announcements","category_id":"DIC_kwDOHPQJ_c4CxD07","mapping":"url","strict":1,"reactions_enabled":1,"emit_metadata":0,"theme":"preferred_color_scheme","lang":"zh-CN","crossorigin":"anonymous","input_position":"bottom","loading":"lazy"}</script>
+
+<script>
+document.addEventListener('page:loaded', () => {
+  if (!CONFIG.page.comments) return;
+
+  NexT.utils.loadComments('.giscus-container')
+    .then(() => NexT.utils.getScript('https://giscus.app/client.js', {
+      attributes: {
+        async                   : true,
+        crossOrigin             : 'anonymous',
+        'data-repo'             : CONFIG.giscus.repo,
+        'data-repo-id'          : CONFIG.giscus.repo_id,
+        'data-category'         : CONFIG.giscus.category,
+        'data-category-id'      : CONFIG.giscus.category_id,
+        'data-mapping'          : CONFIG.giscus.mapping,
+        'data-strict'           : CONFIG.giscus.strict,
+        'data-reactions-enabled': CONFIG.giscus.reactions_enabled,
+        'data-emit-metadata'    : CONFIG.giscus.emit_metadata,
+        'data-theme'            : CONFIG.giscus.theme,
+        'data-lang'             : CONFIG.giscus.lang,
+        'data-input-position'   : CONFIG.giscus.input_position,
+        'data-loading'          : CONFIG.giscus.loading
+      },
+      parentNode: document.querySelector('.giscus-container')
+    }));
+});
+</script>
+
+</body>
+</html>

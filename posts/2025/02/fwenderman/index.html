@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 8.0.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"brkhu.fun","root":"/","images":"/images","scheme":"Pisces","darkmode":true,"version":"8.25.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"stackoverflow-light","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"language":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="我实在是被末影人整得受不了了. 末影人只要搬起方块就不会计入刷怪上限, 也不会自然刷掉, 所以它们可以随意传送到别的地方再把方块放下. 游戏用 #minecraft:enderman_holdable 这个标签标明了末影人可以拿起来的方块, 它包含的方块可以在 &#x2F;data&#x2F;minecraft&#x2F;tags&#x2F;blocks&#x2F;enderman_holdable.json 中找到:">
+<meta property="og:type" content="article">
+<meta property="og:title" content="今 (前? ) 日 MC: 修改了小黑能搬起方块的特性">
+<meta property="og:url" content="http://brkhu.fun/posts/2025/02/fwenderman/index.html">
+<meta property="og:site_name" content="Brkhu用来瞎搞的地方">
+<meta property="og:description" content="我实在是被末影人整得受不了了. 末影人只要搬起方块就不会计入刷怪上限, 也不会自然刷掉, 所以它们可以随意传送到别的地方再把方块放下. 游戏用 #minecraft:enderman_holdable 这个标签标明了末影人可以拿起来的方块, 它包含的方块可以在 &#x2F;data&#x2F;minecraft&#x2F;tags&#x2F;blocks&#x2F;enderman_holdable.json 中找到:">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://brkhu.fun/images/2025/02/fwenderman/2023-01-09_16.57.00.png">
+<meta property="og:image" content="http://brkhu.fun/images/2025/02/fwenderman/2023-01-15_16.41.46.png">
+<meta property="og:image" content="http://brkhu.fun/images/2025/02/fwenderman/2023-01-15_16.43.13.png">
+<meta property="article:published_time" content="2025-02-13T08:40:01.000Z">
+<meta property="article:modified_time" content="2025-02-13T08:40:01.601Z">
+<meta property="article:author" content="Brkhu">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://brkhu.fun/images/2025/02/fwenderman/2023-01-09_16.57.00.png">
+
+
+<link rel="canonical" href="http://brkhu.fun/posts/2025/02/fwenderman/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://brkhu.fun/posts/2025/02/fwenderman/","path":"/posts/2025/02/fwenderman/","title":"今 (前? ) 日 MC: 修改了小黑能搬起方块的特性"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>今 (前? ) 日 MC: 修改了小黑能搬起方块的特性 | Brkhu用来瞎搞的地方</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Brkhu用来瞎搞的地方</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Brkhu"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Brkhu</p>
+  <div class="site-description" itemprop="description">简介？好像是这里</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">21</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Brkhu" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Brkhu" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:w-zc21@mails.tsinghua.edu.cn" title="E-Mail → mailto:w-zc21@mails.tsinghua.edu.cn" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.zhihu.com/people/yi-ge-pu-tong-ren-45" title="知乎 → https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;yi-ge-pu-tong-ren-45" rel="noopener me" target="_blank"><i class="fab fa-zhihu fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://space.bilibili.com/38619348" title="Bilibili → https:&#x2F;&#x2F;space.bilibili.com&#x2F;38619348" rel="noopener me" target="_blank"><i class="fab fa-bilibili fa-fw"></i></a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="sidebar-inner sidebar-blogroll">
+      <div class="links-of-blogroll animated">
+        <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+          链接
+        </div>
+        <ul class="links-of-blogroll-list">
+            <li class="links-of-blogroll-item">
+              <a href="https://algebratv.com/" title="https:&#x2F;&#x2F;algebratv.com" rel="noopener" target="_blank">Not A Goalkeeper 的个人网站</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://hexo.lukechen.lc/" title="https:&#x2F;&#x2F;hexo.lukechen.lc" rel="noopener" target="_blank">Luke Chen 的个人网站</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://vegetablefj.github.io/blog" title="https:&#x2F;&#x2F;vegetablefj.github.io&#x2F;blog" rel="noopener" target="_blank">vegetable fj 的个人网站</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://luody21.github.io/" title="https:&#x2F;&#x2F;luody21.github.io" rel="noopener" target="_blank">bdpqpqbd 的个人网站</a>
+            </li>
+        </ul>
+      </div>
+    </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://brkhu.fun/posts/2025/02/fwenderman/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Brkhu">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Brkhu用来瞎搞的地方">
+      <meta itemprop="description" content="简介？好像是这里">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="今 (前? ) 日 MC: 修改了小黑能搬起方块的特性 | Brkhu用来瞎搞的地方">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          今 (前? ) 日 MC: 修改了小黑能搬起方块的特性
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2025-02-13 16:40:01" itemprop="dateCreated datePublished" datetime="2025-02-13T16:40:01+08:00">2025-02-13</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%B8%B8%E6%88%8F/" itemprop="url" rel="index"><span itemprop="name">游戏</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>我实在是被末影人整得受不了了.</p>
+<p>末影人只要搬起方块就不会计入刷怪上限, 也不会自然刷掉, 所以它们可以随意传送到别的地方再把方块放下. 游戏用 <code>#minecraft:enderman_holdable</code> 这个标签标明了末影人可以拿起来的方块, 它包含的方块可以在 <code>/data/minecraft/tags/blocks/enderman_holdable.json</code> 中找到:</p>
+<span id="more"></span>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;values&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">    <span class="string">&quot;#minecraft:small_flowers&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="string">&quot;#minecraft:dirt&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="string">&quot;minecraft:sand&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="string">&quot;minecraft:red_sand&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="string">&quot;minecraft:gravel&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="string">&quot;minecraft:brown_mushroom&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="string">&quot;minecraft:red_mushroom&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="string">&quot;minecraft:tnt&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="string">&quot;minecraft:cactus&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="string">&quot;minecraft:clay&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="string">&quot;minecraft:pumpkin&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="string">&quot;minecraft:carved_pumpkin&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="string">&quot;minecraft:melon&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="string">&quot;minecraft:crimson_fungus&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="string">&quot;minecraft:crimson_nylium&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="string">&quot;minecraft:crimson_roots&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="string">&quot;minecraft:warped_fungus&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="string">&quot;minecraft:warped_nylium&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="string">&quot;minecraft:warped_roots&quot;</span></span><br><span class="line">  <span class="punctuation">]</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+<p>其中 <code>#minecraft:small_flowers</code> 和 <code>#minecraft:dirt</code> 又是两个另外的标签, 大致就是所有花和所有泥土的衍生方块.</p>
+<p>几乎所有的刷怪塔都需要一个挂机的玩家和一个打怪的玩家, 尤其是我们服务器做了好几个双维度的刷怪塔, 做太高的话还要担心串门的问题, 所以没办法避免地狱下层的刷怪. 坐标原点附近刚好是诡异森林, 会刷不少的末影人, 于是它们就会就近搬起各种诡异菌岩和诡异菌索到处乱放, 在附近的下界荒地上创造大量零散的方块.</p>
+<p>为了获取下界残骸, 我们在地狱底层的岩浆湖下用床炸出了非常复杂的洞穴, 于是也暴露出了大量的砂砾. bdpq 当时做了一个小型的盾构机, 炸膛之后就没有再动过, 只是用泥土填了一部分. 巧的是砂砾和泥土刚好也是末影人可以搬起来的方块, 于是就更乱了.</p>
+<p>不仅如此, 地狱会自然生成一些红蘑菇和灰蘑菇, 并且它们会自然生长. 于是又有越来越多的末影人化身成为蘑菇种植专家, 带着它们的蘑菇走遍地狱, 从而地狱的蘑菇和服务器的 mspt 都得到了指数级的增长:</p>
+<p><img src="/images/2025/02/fwenderman/2023-01-09_16.57.00.png" alt="图片加载失败! 这是第一张图片, 展示了高达 76.9 的 mspt, 其中地狱实体 15ms, 以及大量带着全部家当的末影人扎堆在四格空间内" title="小黑多多, mspt炸炸"></p>
+<p><img src="/images/2025/02/fwenderman/2023-01-15_16.41.46.png" alt="图片加载失败! 这是第二张图片, 清完一部分末影人后 mspt 迅速降至 50 以下" title="好似"></p>
+<p><img src="/images/2025/02/fwenderman/2023-01-15_16.43.13.png" alt="图片加载失败! 这是第三张图片, 下界荒地的大片空地被蘑菇占领" title="地狱绘图"></p>
+<p>做了好几次大面积的清理, 每次都能清理出来好几盒蘑菇. 但就算蘑菇能随便清理, 其他的方块, 尤其是菌岩和砂砾, 实在没办法防止末影人搬起来. 末影人不能搬起与脚下方块同一层的方块, 但是能搬起自己身高 3 格范围内的方块, 所以最后地形一定会变得越来越崎岖.</p>
+<p>很久以前就想通过数据包的方式限制末影人搬方块, 前天终于把这件事做了, 记录一下. 其实非常简单, 首先在存档的 <code>/datapacks/</code> 目录下新建文件夹, 这将会是你的数据包名字, 这里以 <code>FWEnderman</code> 为例. 之后进入文件夹, 创建 <code>pack.mcmeta</code> 文件:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;pack&quot;: &#123;</span><br><span class="line">    &quot;pack_format&quot;: 26,</span><br><span class="line">    &quot;description&quot;: &quot;啥比末影人别惦记你那B方块了&quot;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>我们服务器的版本是 <code>1.20.4</code>, 对应的数据包版本号是 <code>26</code>, 这个可以去 <a target="_blank" rel="noopener" href="https://zh.minecraft.wiki/w/%E6%95%B0%E6%8D%AE%E5%8C%85/%E7%89%88%E6%9C%AC">https://zh.minecraft.wiki/w/%E6%95%B0%E6%8D%AE%E5%8C%85/%E7%89%88%E6%9C%AC</a> 寻找.</p>
+<p>之后需要定位给方块赋予目标标签的 <code>json</code> 文件位置, 也就是我们一开始所做的, 它在 <code>/data/minecraft/tags/blocks/enderman_holdable.json</code> 里面. 为了取消这个标签, 我们同样需要 <code>minecraft</code> 这个命名空间, 所以需要在我们的 <code>FWEnderman</code> 文件夹里面也新建 <code>data</code> 文件夹, 进入后新建 <code>minecraft</code> 文件夹, 以此类推在同样的位置创建 <code>enderman_holdable.json</code>. 与原版文件不同, 这里我填入的是:</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;replace&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;values&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">        <span class="string">&quot;minecraft:pumpkin&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="string">&quot;minecraft:carved_pumpkin&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="string">&quot;minecraft:melon&quot;</span></span><br><span class="line">    <span class="punctuation">]</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+<p>之后进入游戏, 先用 <code>/datapack list</code> 查看待启用的这个数据包, 之后再 <code>/datapack enable xxx</code> 就可以了. 可以检查此时的草方块和蘑菇等确实没有了 <code>#minecraft:enderman_holdable</code> 标签, 末影人也不再能搬起来它们了. 然而南瓜, 雕刻南瓜, 西瓜还是能搬起来, 所以以后也不影响做末影人搬瓜农场.</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/posts/2025/02/dark-mode-setting/" rel="prev" title="调整黑暗模式设置">
+                  <i class="fa fa-angle-left"></i> 调整黑暗模式设置
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/posts/2025/03/2025-pi-day/" rel="next" title="2025 π 节快乐!">
+                  2025 π 节快乐! <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  
+  <div class="comments giscus-container">
+  </div>
+  
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2022 – 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-cube"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Brkhu</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<script class="next-config" data-name="giscus" type="application/json">{"enable":true,"repo":"Brkhu/Brkhu.github.io","repo_id":"R_kgDOHPQJ_Q","category":"Announcements","category_id":"DIC_kwDOHPQJ_c4CxD07","mapping":"url","strict":1,"reactions_enabled":1,"emit_metadata":0,"theme":"preferred_color_scheme","lang":"zh-CN","crossorigin":"anonymous","input_position":"bottom","loading":"lazy"}</script>
+
+<script>
+document.addEventListener('page:loaded', () => {
+  if (!CONFIG.page.comments) return;
+
+  NexT.utils.loadComments('.giscus-container')
+    .then(() => NexT.utils.getScript('https://giscus.app/client.js', {
+      attributes: {
+        async                   : true,
+        crossOrigin             : 'anonymous',
+        'data-repo'             : CONFIG.giscus.repo,
+        'data-repo-id'          : CONFIG.giscus.repo_id,
+        'data-category'         : CONFIG.giscus.category,
+        'data-category-id'      : CONFIG.giscus.category_id,
+        'data-mapping'          : CONFIG.giscus.mapping,
+        'data-strict'           : CONFIG.giscus.strict,
+        'data-reactions-enabled': CONFIG.giscus.reactions_enabled,
+        'data-emit-metadata'    : CONFIG.giscus.emit_metadata,
+        'data-theme'            : CONFIG.giscus.theme,
+        'data-lang'             : CONFIG.giscus.lang,
+        'data-input-position'   : CONFIG.giscus.input_position,
+        'data-loading'          : CONFIG.giscus.loading
+      },
+      parentNode: document.querySelector('.giscus-container')
+    }));
+});
+</script>
+
+</body>
+</html>
