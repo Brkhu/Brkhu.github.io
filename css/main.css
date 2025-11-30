@@ -1410,7 +1410,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #61ff13;
+    background: #ffc1e2;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -2915,4 +2915,9 @@ img:hover {
 }
 .links-of-blogroll-list {
   line-height: 1.5;
+}
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
 }
