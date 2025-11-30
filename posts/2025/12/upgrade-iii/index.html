@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 8.0.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"brkhu.fun","root":"/","images":"/images","scheme":"Pisces","darkmode":true,"version":"8.25.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"stackoverflow-light","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":"default"},"fold":{"enable":false,"height":500},"language":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":150,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="更细致地调整了部分间距。 现在，在 goalkeeper 那边提到的最后一个问题也解决了：新专栏——“页边空白”！现在已经能从页面左侧进入。 搞这么一个新栏目还是稍微费点功夫的。我的目标是通过自定义字段 group: narrow-margin，来区分普通文章和“页边空白”文章，并让主页只显示普通文章，而“页边空白”文章则集中显示在专栏页面里。 首先要创建如下的 js 脚本 &#x2F;scripts&#x2F;fi">
+<meta property="og:type" content="article">
+<meta property="og:title" content="网页升级之三">
+<meta property="og:url" content="http://brkhu.fun/posts/2025/12/upgrade-iii/index.html">
+<meta property="og:site_name" content="Brkhu用来瞎搞的地方">
+<meta property="og:description" content="更细致地调整了部分间距。 现在，在 goalkeeper 那边提到的最后一个问题也解决了：新专栏——“页边空白”！现在已经能从页面左侧进入。 搞这么一个新栏目还是稍微费点功夫的。我的目标是通过自定义字段 group: narrow-margin，来区分普通文章和“页边空白”文章，并让主页只显示普通文章，而“页边空白”文章则集中显示在专栏页面里。 首先要创建如下的 js 脚本 &#x2F;scripts&#x2F;fi">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-11-30T20:48:42.000Z">
+<meta property="article:modified_time" content="2025-11-30T20:48:42.012Z">
+<meta property="article:author" content="Brkhu">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://brkhu.fun/posts/2025/12/upgrade-iii/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://brkhu.fun/posts/2025/12/upgrade-iii/","path":"/posts/2025/12/upgrade-iii/","title":"网页升级之三"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>网页升级之三 | Brkhu用来瞎搞的地方</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Brkhu用来瞎搞的地方</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-narrow-margin"><a href="/narrow-margin/" rel="section"><i class="fa fa-book-open fa-fw"></i>页边空白</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Brkhu"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Brkhu</p>
+  <div class="site-description" itemprop="description">简介？好像是这里</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">24</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Brkhu" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Brkhu" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:w-zc21@mails.tsinghua.edu.cn" title="E-Mail → mailto:w-zc21@mails.tsinghua.edu.cn" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.zhihu.com/people/yi-ge-pu-tong-ren-45" title="知乎 → https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;yi-ge-pu-tong-ren-45" rel="noopener me" target="_blank"><i class="fab fa-zhihu fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://space.bilibili.com/38619348" title="Bilibili → https:&#x2F;&#x2F;space.bilibili.com&#x2F;38619348" rel="noopener me" target="_blank"><i class="fab fa-bilibili fa-fw"></i></a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="sidebar-inner sidebar-blogroll">
+      <div class="links-of-blogroll animated">
+        <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+          链接
+        </div>
+        <ul class="links-of-blogroll-list">
+            <li class="links-of-blogroll-item">
+              <a href="https://algebratv.com/" title="https:&#x2F;&#x2F;algebratv.com" rel="noopener" target="_blank">Not A Goalkeeper 的个人网站</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://hexo.lukechen.lc/" title="https:&#x2F;&#x2F;hexo.lukechen.lc" rel="noopener" target="_blank">Luke Chen 的个人网站</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://vegetablefj.github.io/blog" title="https:&#x2F;&#x2F;vegetablefj.github.io&#x2F;blog" rel="noopener" target="_blank">vegetable fj 的个人网站</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://luody21.github.io/" title="https:&#x2F;&#x2F;luody21.github.io" rel="noopener" target="_blank">bdpqpqbd 的个人网站</a>
+            </li>
+        </ul>
+      </div>
+    </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://brkhu.fun/posts/2025/12/upgrade-iii/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Brkhu">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Brkhu用来瞎搞的地方">
+      <meta itemprop="description" content="简介？好像是这里">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="网页升级之三 | Brkhu用来瞎搞的地方">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          网页升级之三
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2025-12-01 04:48:42" itemprop="dateCreated datePublished" datetime="2025-12-01T04:48:42+08:00">2025-12-01</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>更细致地调整了部分间距。</p>
+<p>现在，<a target="_blank" rel="noopener" href="https://algebratv.com/p/%E9%9A%8F%E4%BE%BF%E5%95%A5%E7%9A%84/">在 goalkeeper 那边提到的</a>最后一个问题也解决了：新专栏——“<a href="https://brkhu.fun/narrow-margin/">页边空白</a>”！现在已经能从页面左侧进入。</p>
+<p>搞这么一个新栏目还是稍微费点功夫的。我的目标是通过自定义字段 <code>group: narrow-margin</code>，来区分普通文章和“页边空白”文章，并让主页只显示普通文章，而“页边空白”文章则集中显示在专栏页面里。</p>
+<p>首先要创建如下的 js 脚本 <code>/scripts/filter_posts.js</code>，用来过滤文章列表：</p>
+<span id="more"></span>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> pagination = <span class="built_in">require</span>(<span class="string">&#x27;hexo-pagination&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// --- Filter Hook: Runs first to prepare data collections ---</span></span><br><span class="line">hexo.<span class="property">extend</span>.<span class="property">filter</span>.<span class="title function_">register</span>(<span class="string">&#x27;before_generate&#x27;</span>, <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> allPosts = hexo.<span class="property">locals</span>.<span class="title function_">get</span>(<span class="string">&#x27;posts&#x27;</span>);</span><br><span class="line">  <span class="keyword">const</span> mainPosts = allPosts.<span class="title function_">filter</span>(<span class="function"><span class="params">post</span> =&gt;</span> !(post.<span class="property">group</span> &amp;&amp; post.<span class="property">group</span> === <span class="string">&#x27;narrow-margin&#x27;</span>));</span><br><span class="line">  <span class="keyword">const</span> narrowMarginPosts = allPosts.<span class="title function_">filter</span>(<span class="function"><span class="params">post</span> =&gt;</span> post.<span class="property">group</span> &amp;&amp; post.<span class="property">group</span> === <span class="string">&#x27;narrow-margin&#x27;</span>);</span><br><span class="line">  </span><br><span class="line">  hexo.<span class="property">locals</span>.<span class="title function_">set</span>(<span class="string">&#x27;main_posts&#x27;</span>, mainPosts.<span class="title function_">sort</span>(<span class="string">&#x27;-date&#x27;</span>));</span><br><span class="line">  hexo.<span class="property">locals</span>.<span class="title function_">set</span>(<span class="string">&#x27;narrow_margin_posts&#x27;</span>, narrowMarginPosts.<span class="title function_">sort</span>(<span class="string">&#x27;-date&#x27;</span>));</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// --- Generator #1: For the Homepage ---</span></span><br><span class="line">hexo.<span class="property">extend</span>.<span class="property">generator</span>.<span class="title function_">register</span>(<span class="string">&#x27;my_index_generator&#x27;</span>, <span class="keyword">function</span>(<span class="params">locals</span>) &#123;</span><br><span class="line">  <span class="comment">// 使用我们在 filter 中准备好的、已经过滤过的文章列表</span></span><br><span class="line">  <span class="keyword">const</span> posts = locals.<span class="property">main_posts</span>;</span><br><span class="line">  <span class="keyword">if</span> (!posts || posts.<span class="property">length</span> === <span class="number">0</span>) <span class="keyword">return</span>;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 从根目录的 _config.yml 获取分页配置</span></span><br><span class="line">  <span class="keyword">const</span> config = hexo.<span class="property">config</span>.<span class="property">my_index_generator</span> || &#123;&#125;;</span><br><span class="line">  <span class="keyword">const</span> perPage = config.<span class="property">per_page</span> || <span class="number">10</span>;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">return</span> <span class="title function_">pagination</span>(<span class="string">&#x27;&#x27;</span>, posts, &#123;</span><br><span class="line">    <span class="attr">perPage</span>: perPage,</span><br><span class="line">    <span class="attr">layout</span>: [<span class="string">&#x27;index&#x27;</span>, <span class="string">&#x27;archive&#x27;</span>],</span><br><span class="line">    <span class="attr">format</span>: <span class="string">&#x27;page/%d/&#x27;</span>,</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// --- Generator #2: For the &quot;Narrow Margin&quot; Archive Page (This is the new part!) ---</span></span><br><span class="line">hexo.<span class="property">extend</span>.<span class="property">generator</span>.<span class="title function_">register</span>(<span class="string">&#x27;narrow_margin_generator&#x27;</span>, <span class="keyword">function</span>(<span class="params">locals</span>) &#123;</span><br><span class="line">  <span class="comment">// 1. 获取我们准备好的、专属的文章列表</span></span><br><span class="line">  <span class="keyword">const</span> posts = locals.<span class="property">narrow_margin_posts</span>;</span><br><span class="line">  <span class="keyword">if</span> (!posts || posts.<span class="property">length</span> === <span class="number">0</span>) <span class="keyword">return</span>; <span class="comment">// 如果没有文章，就不生成任何页面</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">// 2. 从 _config.yml 读取这个生成器的配置</span></span><br><span class="line">  <span class="keyword">const</span> config = hexo.<span class="property">config</span>.<span class="property">narrow_margin_generator</span> || &#123;&#125;;</span><br><span class="line">  <span class="keyword">const</span> perPage = config.<span class="property">per_page</span> || <span class="number">10</span>; <span class="comment">// 每页文章数，默认10</span></span><br><span class="line">  <span class="keyword">const</span> path = config.<span class="property">path</span> || <span class="string">&#x27;narrow-margin&#x27;</span>; <span class="comment">// 页面的基础路径</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//   console.log(`[Narrow Margin Generator] Generating pages for &#x27;$&#123;path&#125;&#x27; with $&#123;posts.length&#125; posts.`);</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">// 3. 调用 hexo-pagination 来创建所有分页路由</span></span><br><span class="line">  <span class="keyword">return</span> <span class="title function_">pagination</span>(path, posts, &#123;</span><br><span class="line">    <span class="attr">perPage</span>: perPage,</span><br><span class="line">    <span class="attr">layout</span>: [<span class="string">&#x27;narrow-margin&#x27;</span>, <span class="string">&#x27;archive&#x27;</span>], <span class="comment">// 告诉 Hexo 使用 narrow-margin.njk 模板</span></span><br><span class="line">    <span class="attr">format</span>: <span class="string">&#x27;page/%d/&#x27;</span>, <span class="comment">// 分页的 URL 格式</span></span><br><span class="line">    <span class="attr">data</span>: &#123;</span><br><span class="line">      <span class="comment">// 你可以在这里传递一些额外的数据给模板</span></span><br><span class="line">      <span class="comment">// 例如：</span></span><br><span class="line">      <span class="attr">title</span>: <span class="string">&#x27;Narrow Margin Archive&#x27;</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>这样一来，我们以后就可以用 <code>site.narrow_margin_posts</code> 来访问“页边空白”文章列表，同时用 <code>site.main_posts</code> 来访问普通文章列表了。</p>
+<p>然后在 <code>/themes/next/layout/</code> 下新建 <code>narrow-margin.njk</code>，内容大致是复制 <code>archive.njk</code>，改一些关键的地方就可以。</p>
+<hr>
+<p>顺便修复了 more 会跳转到文章中间的问题，现在点击 more 会跳转到文章顶部了，这是通过把 <code>/themes/next/layout/_macro/post.njk</code> 里的</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;%- if theme.read_more_btn %&#125;</span><br><span class="line">  &lt;div class=&quot;post-button&quot;&gt;</span><br><span class="line">    &lt;a class=&quot;btn&quot; href=&quot;&#123;&#123; url_for(post.path) &#125;&#125;#more&quot; rel=&quot;contents&quot;&gt;</span><br><span class="line">      &#123;&#123; __(&#x27;post.read_more&#x27;) &#125;&#125; &amp;raquo;</span><br><span class="line">    &lt;/a&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&#123;%- endif %&#125;</span><br></pre></td></tr></table></figure>
+<p>去掉 <code>#more</code> 实现的。要是有人在网址后面直接加 <code>#more</code> 跳转倒也能跳到中间位置。</p>
+<p>这代码块怎么不自带 njk 的语法……当纯文本凑合看吧。</p>
+<hr>
+<p>等着，很快就会开始更新数学了</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/posts/2025/11/upgrade-ii/" rel="prev" title="网站升级之二">
+                  <i class="fa fa-angle-left"></i> 网站升级之二
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/posts/2025/12/margin-test/" rel="next" title="页边空白测试与介绍">
+                  页边空白测试与介绍 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  
+  <div class="comments giscus-container">
+  </div>
+  
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2022 – 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-cube"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Brkhu</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<script class="next-config" data-name="giscus" type="application/json">{"enable":true,"repo":"Brkhu/Brkhu.github.io","repo_id":"R_kgDOHPQJ_Q","category":"Announcements","category_id":"DIC_kwDOHPQJ_c4CxD07","mapping":"url","strict":1,"reactions_enabled":1,"emit_metadata":0,"theme":"preferred_color_scheme","lang":"zh-CN","crossorigin":"anonymous","input_position":"bottom","loading":"lazy"}</script>
+
+<script>
+document.addEventListener('page:loaded', () => {
+  if (!CONFIG.page.comments) return;
+
+  NexT.utils.loadComments('.giscus-container')
+    .then(() => NexT.utils.getScript('https://giscus.app/client.js', {
+      attributes: {
+        async                   : true,
+        crossOrigin             : 'anonymous',
+        'data-repo'             : CONFIG.giscus.repo,
+        'data-repo-id'          : CONFIG.giscus.repo_id,
+        'data-category'         : CONFIG.giscus.category,
+        'data-category-id'      : CONFIG.giscus.category_id,
+        'data-mapping'          : CONFIG.giscus.mapping,
+        'data-strict'           : CONFIG.giscus.strict,
+        'data-reactions-enabled': CONFIG.giscus.reactions_enabled,
+        'data-emit-metadata'    : CONFIG.giscus.emit_metadata,
+        'data-theme'            : CONFIG.giscus.theme,
+        'data-lang'             : CONFIG.giscus.lang,
+        'data-input-position'   : CONFIG.giscus.input_position,
+        'data-loading'          : CONFIG.giscus.loading
+      },
+      parentNode: document.querySelector('.giscus-container')
+    }));
+});
+</script>
+
+</body>
+</html>
