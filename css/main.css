@@ -1410,7 +1410,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #f91d1f;
+    background: #f9b413;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -2865,7 +2865,8 @@ header.header {
   padding-top: 15px;
 }
 .post-block:first-of-type {
-  padding-top: 15px;
+  padding-top: 25px;
+  margin-top: 15px;
 }
 .post-block {
   -webkit-box-shadow: 0 0 5px rgba(202,203,203,0.5);
@@ -2905,12 +2906,13 @@ code {
     color: $code-foreground-dark;
   }
 }
-.post-content {
+.post-block {
   padding: 25px;
 }
-img {
-  opacity: 1;
-}
+img,
 img:hover {
   opacity: 1;
+}
+.links-of-blogroll-list {
+  line-height: 1.5;
 }
