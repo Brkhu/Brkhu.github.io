@@ -1410,7 +1410,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #323660;
+    background: #f91d1f;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -2864,6 +2864,13 @@ header.header {
 .content {
   padding-top: 15px;
 }
+.post-block:first-of-type {
+  padding-top: 15px;
+}
+.post-block {
+  -webkit-box-shadow: 0 0 5px rgba(202,203,203,0.5);
+  margin-bottom: 60px;
+}
 @media (prefers-color-scheme: light) {
   body {
     background: url("/images/background_light.jpg");
@@ -2882,13 +2889,28 @@ header.header {
     background-position: center;
   }
 }
+:root {
+  --content-bg-color: rgba(255,255,255,0.9);
+}
 code {
   background: $code-background;
   color: $code-foreground;
 }
 @media (prefers-color-scheme: dark) {
+  :root {
+    --content-bg-color: rgba(51,51,51,0.9);
+  }
   code {
     background: $code-background-dark;
     color: $code-foreground-dark;
   }
+}
+.post-content {
+  padding: 25px;
+}
+img {
+  opacity: 1;
+}
+img:hover {
+  opacity: 1;
 }
